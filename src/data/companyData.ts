@@ -20,8 +20,8 @@ export const COMPANY_DATA = {
       roleMs: "Pengarah Urusan",
       roleEn: "Managing Director",
       assetId: "A011",
-      bioMs: "Menerajui pengurusan strategik, kawalan kualiti projek dan penyeliaan operasi tapak di BMJ Energy Service And Trading.",
-      bioEn: "Leads strategic management, project quality compliance, and overall site operations at BMJ Energy Service And Trading."
+      bioMs: "Pengarah Urusan",
+      bioEn: "Managing Director"
     },
     assistantManager: {
       fullName: "Zaihidah Nawawi",
@@ -29,8 +29,8 @@ export const COMPANY_DATA = {
       roleMs: "Penolong Pengurus",
       roleEn: "Assistant Manager",
       assetId: "A012",
-      bioMs: "Menyelaras pentadbiran perniagaan, perolehan, jadual pelaksanaan projek serta pengurusan sumber operasi syarikat.",
-      bioEn: "Coordinates business administration, procurement, project delivery schedules, and operational resource management."
+      bioMs: "Penolong Pengurus",
+      bioEn: "Assistant Manager"
     }
   },
 
@@ -40,25 +40,22 @@ export const COMPANY_DATA = {
   storyMs: "Ditubuhkan pada 9 Mac 2021 di Manjung, Perak, BMJ Energy Service And Trading berkembang secara berperingkat melalui komitmen terhadap pengurusan projek yang berdisiplin, barisan tenaga kerja yang berpengalaman, penyiapan kerja tepat pada masa, serta penambahbaikan berterusan dalam setiap sektor pembinaan dan penyewaan jentera yang diceburi.",
   storyEn: "Established on 9 March 2021 in Manjung, Perak, BMJ Energy Service And Trading has grown through disciplined project management, an experienced workforce, timely project delivery, and continuous improvement across civil contracting and equipment hire sectors.",
 
-  missionMs: "Menyampaikan perkhidmatan kejuruteraan dan pembinaan yang profesional serta berkualiti tinggi, memenuhi keperluan pelanggan dengan tuntas, dan menyiapkan kerja mengikut jadual dengan mengutamakan keselamatan tapak.",
-  missionEn: "Deliver professional, high-quality engineering and construction services, fulfil client needs reliably, and complete works on schedule with a firm commitment to workplace safety.",
+  // Adapted from profile P4: its printed Mission/Vision headings are inverted.
+  missionMs: "Membangunkan organisasi profesional yang menyediakan perkhidmatan cemerlang tanpa berkompromi terhadap kualiti. Melalui pasukan yang berdedikasi, kami berusaha memahami, menjangka dan memenuhi keperluan pelanggan demi kepuasan mereka.",
+  missionEn: "Build a professional organisation that provides outstanding services without compromising quality. Through a dedicated team, we strive to understand, anticipate and fulfil our clients’ requirements for their complete satisfaction.",
 
-  visionMs: "Menjadi penanda aras yang dipercayai dalam bidang kontraktor awam dan pembinaan, disokong oleh tenaga kerja mahir, inovasi berterusan, dan kepuasan pelanggan.",
-  visionEn: "To become a trusted benchmark in civil contracting and construction, backed by skilled personnel, continuous innovation, and enduring customer satisfaction.",
+  visionMs: "Menjadi penanda aras dalam bidang kontraktor awam dan pembinaan bagi sektor bangunan, jalan raya, makanan dan minuman serta hartanah.",
+  visionEn: "To become a benchmark in civil contracting and construction for the building, roads, food and beverage, and real estate sectors.",
 
   objectivesMs: [
-    { title: "Kualiti Kerja", desc: "Memastikan mutu pertukangan dan kejuruteraan sentiasa menepati piawaian industri pembinaan." },
-    { title: "Pematuhan Spesifikasi", desc: "Menjalankan setiap skop kerja berpandukan spesifikasi kontrak dan kehendak teknikal klien." },
-    { title: "Pelaksanaan Selamat & Tepat Masa", desc: "Mementingkan prosedur keselamatan tapak serta memastikan projek disiapkan mengikut tempoh ditetapkan." },
-    { title: "Perkhidmatan Boleh Diharap", desc: "Memberikan komunikasi telus, khidmat sokongan pantas dan jentera dalam keadaan optimum." },
-    { title: "Penambahbaikan Berterusan", desc: "Meningkatkan kemahiran pasukan dan memperkemas kaedah kerja dari semasa ke semasa." }
+    { title: "Kualiti Kejuruteraan", desc: "Menghasilkan kerja berkualiti tinggi mengikut piawaian kejuruteraan yang ditetapkan." },
+    { title: "Jangkaan Pelanggan", desc: "Memberikan hasil berkualiti yang melebihi jangkaan pelanggan." },
+    { title: "Tepat Masa & Selamat", desc: "Menyiapkan projek tepat pada masanya dengan mematuhi keperluan keselamatan." }
   ],
   objectivesEn: [
-    { title: "Workmanship Quality", desc: "Ensuring trade craftsmanship and civil engineering works adhere strictly to industry standards." },
-    { title: "Specification Compliance", desc: "Executing every scope strictly according to client contractual and technical specifications." },
-    { title: "Safe & Timely Execution", desc: "Prioritising workplace safety practices and ensuring projects are delivered on schedule." },
-    { title: "Dependable Service", desc: "Providing transparent communication, rapid support, and machinery maintained in prime condition." },
-    { title: "Continuous Improvement", desc: "Constantly upgrading team skills and refining operational methods on every assignment." }
+    { title: "Engineering Quality", desc: "Produce high-quality work in accordance with specified engineering standards." },
+    { title: "Client Expectations", desc: "Deliver quality outcomes that exceed client expectations." },
+    { title: "Timely & Safe Delivery", desc: "Deliver projects on time while complying with safety requirements." }
   ],
 
   valuesMs: [

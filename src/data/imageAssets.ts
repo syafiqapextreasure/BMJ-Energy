@@ -1,3 +1,4 @@
+import { SERVICE_IMAGE_OVERRIDES } from './serviceImageOverrides';
 import heroBg from '@/src/assets/images/hero_construction_bg_1790357507939.jpg';
 import paverYellow from '@/src/assets/images/asphalt_paver_yellow_1790357522181.jpg';
 import paverBlue from '@/src/assets/images/asphalt_paver_blue_1790357540660.jpg';
@@ -34,6 +35,7 @@ export const PHOTO_REGISTRY = {
  * Returns the relevant real photographic asset for any asset ID or fallback category.
  */
 export function getPhotoForAsset(assetId: string, category?: string): string {
+  if (SERVICE_IMAGE_OVERRIDES[assetId]) return SERVICE_IMAGE_OVERRIDES[assetId];
   // Direct ID mappings
   switch (assetId) {
     case 'A011':

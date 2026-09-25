@@ -30,6 +30,12 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
+  // Translate display text only; retain original document date strings in data.
+  const displayDate = (date: string) => language === 'ms' ? date : date.replace(
+    /\b(Januari|Februari|Feb|Mac|Mei|Jun|Julai|Ogos|Oktober|Disember)\b/g,
+    (month) => ({ Januari: 'January', Februari: 'February', Feb: 'February', Mac: 'March', Mei: 'May', Jun: 'June', Julai: 'July', Ogos: 'August', Oktober: 'October', Disember: 'December' }[month] || month)
+  );
+
   // Filter completed projects
   const filteredCompleted = COMPLETED_PROJECTS.filter((proj) => {
     const matchesSearch =
@@ -38,7 +44,8 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
       proj.titleEn.toLowerCase().includes(searchTerm.toLowerCase()) ||
       proj.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
       proj.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      proj.scopeMs.toLowerCase().includes(searchTerm.toLowerCase());
+      proj.scopeMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      proj.scopeEn.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesCategory = selectedCategory === 'all' || proj.category === selectedCategory;
 
@@ -53,7 +60,9 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
       rec.titleMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
       rec.titleEn.toLowerCase().includes(searchTerm.toLowerCase()) ||
       rec.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      rec.code.toLowerCase().includes(searchTerm.toLowerCase())
+      rec.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      rec.scopeMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      rec.scopeEn.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 
@@ -63,7 +72,8 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
       searchTerm === '' ||
       g.titleMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
       g.titleEn.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      g.descMs.toLowerCase().includes(searchTerm.toLowerCase())
+      g.descMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      g.descEn.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 
@@ -149,14 +159,14 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
 
             {activeTab === 'completed' && (
               <div className="flex items-center gap-2 overflow-x-auto">
-                <span className="text-xs font-bold text-slate-500 shrink-0 uppercase">Kategori:</span>
+                <span className="text-xs font-bold text-slate-500 shrink-0 uppercase">{language === 'ms' ? 'Kategori:' : 'Category:'}</span>
                 {[
                   { id: 'all', label: t.portfolio.filterAll },
-                  { id: 'road', label: 'Jalan Raya' },
-                  { id: 'drainage', label: 'Saliran' },
-                  { id: 'maintenance', label: 'Penyelenggaraan' },
-                  { id: 'building', label: 'Bangunan' },
-                  { id: 'supply', label: 'Pembekalan' },
+                  { id: 'road', label: language === 'ms' ? 'Jalan Raya' : 'Roads' },
+                  { id: 'drainage', label: language === 'ms' ? 'Saliran' : 'Drainage' },
+                  { id: 'maintenance', label: language === 'ms' ? 'Penyelenggaraan' : 'Maintenance' },
+                  { id: 'building', label: language === 'ms' ? 'Bangunan' : 'Buildings' },
+                  { id: 'supply', label: language === 'ms' ? 'Pembekalan' : 'Supply' },
                 ].map((c) => (
                   <button
                     key={c.id}
@@ -206,7 +216,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                             {project.client}
                           </span>
                           <span className="px-3 py-1 rounded-md bg-amber-50 text-amber-900 text-sm font-semibold border border-amber-200">
-                            {project.dateStr}
+                            {displayDate(project.dateStr)}
                           </span>
                           {project.category === 'supply' && (
                             <span className="px-3 py-1 rounded-md bg-purple-50 text-purple-800 text-sm font-semibold">
@@ -235,9 +245,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                           </div>
                         )}
 
-                        <div className="pt-2 flex items-center gap-4 text-sm font-mono text-slate-500 font-medium">
-                          <span>{t.portfolio.refLabel}: {project.pdfRef}</span>
-                        </div>
+
                       </div>
 
                       {/* Right Project Photos Gallery if available (Cols 4) */}
@@ -279,7 +287,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                           </p>
                           <p>
                             {language === 'ms'
-                              ? 'Tersedia dalam senarai projek fizikal p.28–48. Tiada lampiran foto berasingan.'
+                              ? 'Direkodkan dalam daftar projek profil syarikat. Tiada lampiran foto berasingan.'
                               : 'Documented in company profile project register. No separate image tile.'}
                           </p>
                         </div>
@@ -302,8 +310,8 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
             </p>
             <p>
               {language === 'ms'
-                ? 'Rekod di bawah dipaparkan secara berasingan daripada projek siap. Ini merangkumi dokumen perolehan entiti bersekutu (BMJ MAJU 77) dan pelantikan kontraktor berkelayakan.'
-                : 'The records below are classified separately from completed projects, including affiliated entity procurement documents and approved contractor appointments.'}
+                ? 'Rekod ini diasingkan daripada projek siap. Dokumen atas nama BMJ MAJU 77 ENTERPRISE bukan kontrak BMJ Energy dan tidak membuktikan hubungan antara kedua-dua entiti. Surat pelantikan pula bukan bukti penyiapan projek fizikal.'
+                : 'These records are separate from completed projects. The document addressed to BMJ MAJU 77 ENTERPRISE is not a BMJ Energy contract and does not establish a relationship between the entities. An appointment letter is not evidence of a completed physical project.'}
             </p>
           </div>
 
@@ -322,7 +330,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                       {record.client}
                     </span>
                     <span className="px-2.5 py-1 rounded bg-amber-100 text-amber-800 text-xs font-semibold">
-                      {record.dateStr}
+                      {displayDate(record.dateStr)}
                     </span>
                   </div>
 
@@ -336,14 +344,12 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
 
                   {record.attributionNoteMs && (
                     <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed">
-                      <strong>Nota Pengesahan:</strong>{' '}
+                      <strong>{language === 'ms' ? 'Nota Pengesahan:' : 'Verification Note:'}</strong>{' '}
                       {language === 'ms' ? record.attributionNoteMs : record.attributionNoteEn}
                     </div>
                   )}
 
-                  <div className="text-xs font-mono text-slate-400 pt-2">
-                    {t.portfolio.refLabel}: {record.pdfRef}
-                  </div>
+
                 </div>
               </div>
             ))}
@@ -357,8 +363,8 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
           <div className="p-4 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-sm">
             <p>
               {language === 'ms'
-                ? 'Lampiran fotografi kerja tapak di bawah direkodkan dalam profil syarikat (ms. 56–60). Tiada tarikh atau nilai kontrak direka cipta; dipaparkan secara telus mengikut sumber foto asal.'
-                : 'The field photo series below are archived in company profile appendix (pp. 56–60). No dates or contract values are fabricated.'}
+                ? 'Rekod foto kerja tapak ini dipaparkan berasingan daripada kontrak bertarikh. Tarikh dan nilai kontrak tidak dinyatakan.'
+                : 'These field photo records are presented separately from dated contracts. Contract dates and values are not stated.'}
             </p>
           </div>
 
@@ -370,7 +376,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
               >
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-[#C81D25]">
-                    {gallery.category}
+                    {language === 'ms' ? gallery.category : ({ 'Jalan Raya': 'Roads', 'Penyelenggaraan': 'Maintenance', 'Keselamatan Jalan': 'Road Safety' }[gallery.category] || gallery.category)}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#102749] mt-1">
                     {language === 'ms' ? gallery.titleMs : gallery.titleEn}
@@ -399,9 +405,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                   ))}
                 </div>
 
-                <div className="text-xs font-mono text-slate-400 border-t border-slate-100 pt-3">
-                  {language === 'ms' ? gallery.sourceNoteMs : gallery.sourceNoteEn}
-                </div>
+
               </div>
             ))}
           </div>

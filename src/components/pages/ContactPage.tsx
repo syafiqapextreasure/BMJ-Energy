@@ -108,7 +108,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             {/* Location Notice Callout */}
             <div className="p-5 rounded-2xl bg-blue-50 border border-blue-200 text-[#102749] text-sm sm:text-base leading-relaxed">
               <span className="font-bold block mb-1">
-                {language === 'ms' ? 'Liputan Operasi:' : 'Operational Base:'}
+                {language === 'ms' ? 'Pangkalan Operasi:' : 'Operational Base:'}
               </span>
               <p>{t.contact.locationNotice}</p>
             </div>
@@ -255,7 +255,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    placeholder={language === 'ms' ? 'Kawasan Projek di Perak' : 'Project Area in Perak'}
+                    placeholder={language === 'ms' ? 'Lokasi tapak projek anda' : 'Your project site location'}
                     className="w-full min-h-[48px] px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#102749]"
                   />
                 </div>
@@ -301,8 +301,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </button>
                 <p className="text-sm text-slate-600 font-medium text-center mt-3">
                   {language === 'ms'
-                    ? 'Borang ini akan membuka WhatsApp secara automatik dengan mesej yang tersusun.'
-                    : 'This form will automatically open WhatsApp with your pre-formatted message.'}
+                    ? 'Borang ini membuka draf WhatsApp untuk semakan anda; mesej tidak dihantar secara automatik. Semua permintaan tertakluk kepada pengesahan.'
+                    : 'This form opens a WhatsApp draft for your review; it does not send automatically. All requests are subject to confirmation.'}
                 </p>
               </div>
             </form>

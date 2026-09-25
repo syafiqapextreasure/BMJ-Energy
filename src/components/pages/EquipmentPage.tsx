@@ -56,7 +56,7 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
       operatorNeeded === 'with'
         ? language === 'ms'
           ? 'Bersama Operator Mahir'
-          : 'With Certified Operator'
+          : 'With Skilled Operator'
         : language === 'ms'
           ? 'Jentera Sahaja (Dry Hire)'
           : 'Machine Only (Dry Hire)';
@@ -255,7 +255,7 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
               >
                 {RENTAL_EQUIPMENT.map((equip) => (
                   <option key={equip.id} value={equip.id}>
-                    {language === 'ms' ? equip.nameMs : equip.nameEn} ({equip.typeMs})
+                    {language === 'ms' ? equip.nameMs : equip.nameEn} ({language === 'ms' ? equip.typeMs : equip.typeEn})
                   </option>
                 ))}
               </select>

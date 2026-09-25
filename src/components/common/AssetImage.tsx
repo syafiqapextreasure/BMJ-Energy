@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ASSETS_BY_ID, ASSET_SHEET_WIDTH, ASSET_SHEET_HEIGHT } from '@/src/data/assets';
 import { useAssets } from '@/src/context/AssetContext';
 import { getPhotoForAsset } from '@/src/data/imageAssets';
+import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
 import { Eye } from 'lucide-react';
 
 interface AssetImageProps {
@@ -43,7 +44,7 @@ export const AssetImage: React.FC<AssetImageProps> = ({
       aria-label={label}
     >
       {/* 1. Spritesheet clipping IF spritesheet is explicitly uploaded & available */}
-      {isSheetAvailable && !spriteError && asset ? (
+      {!SERVICE_IMAGE_OVERRIDES[assetId] && isSheetAvailable && !spriteError && asset ? (
         <svg
           viewBox={`${asset.x} ${asset.y} ${asset.w} ${asset.h}`}
           className={`w-full h-full ${objectFit === 'contain' ? 'object-contain' : 'object-cover'} transition-transform duration-500 ${isClickable ? 'group-hover:scale-105' : ''}`}

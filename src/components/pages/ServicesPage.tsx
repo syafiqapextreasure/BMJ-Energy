@@ -3,7 +3,7 @@ import { RouteId } from '@/src/types';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPANY_DATA } from '@/src/data/companyData';
 import { SERVICES_DATA } from '@/src/data/servicesData';
-import { AssetImage } from '@/src/components/common/AssetImage';
+import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import { YellowAngleBox } from '@/src/components/common/YellowAngleBox';
 import {
@@ -108,7 +108,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                       {service.num}
                     </span>
                     <span className="text-sm font-bold uppercase tracking-wider text-[#C81D25]">
-                      BMJ Service Division
+                      {language === 'ms' ? 'Perkhidmatan BMJ' : 'BMJ Services'}
                     </span>
                   </div>
 
@@ -165,13 +165,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   {/* Primary Photo with YellowAngleBox */}
                   <div className="p-2 sm:p-3">
                     <YellowAngleBox angleSize="md" className="w-full">
-                      <AssetImage
-                        assetId={service.primaryAssetId}
-                        alt={title}
-                        aspectRatio="aspect-[4/3]"
-                        onClick={() => onOpenLightbox(service.primaryAssetId)}
-                        className="cursor-pointer"
-                      />
+                      <button type="button" className="block w-full aspect-[4/3] bg-slate-50 cursor-pointer" aria-label={title} onClick={() => onOpenLightbox(service.primaryAssetId)}>
+                        <img src={SERVICE_IMAGE_OVERRIDES[service.primaryAssetId]} alt={title} loading="lazy" className={`w-full h-full object-contain ${index >= 8 ? 'p-16' : ''}`} />
+                      </button>
                     </YellowAngleBox>
                   </div>
 
@@ -179,16 +175,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   {service.assetIds.length > 1 && (
                     <div className="grid grid-cols-3 gap-2.5 pt-1">
                       {service.assetIds.map((id) => (
-                        <div
+                        <button
+                          type="button"
+                          aria-label={`${title} — ${service.assetIds.indexOf(id) + 1}`}
                           key={id}
                           className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 cursor-pointer bg-slate-900 shadow-sm hover:border-[#F5A623] transition-colors"
                           onClick={() => onOpenLightbox(id)}
                         >
-                          <AssetImage assetId={id} aspectRatio="aspect-[4/3]" />
-                          <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/75 text-white text-[11px] font-mono">
-                            {id}
-                          </span>
-                        </div>
+                          <img src={SERVICE_IMAGE_OVERRIDES[id]} alt={title} loading="lazy" className="w-full h-full object-contain" />
+                        </button>
                       ))}
                     </div>
                   )}
@@ -196,8 +191,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-600 flex items-center justify-between">
                     <span>
                       {language === 'ms'
-                        ? 'Dilaksanakan mengikut piawaian teknikal JKR & spesifikasi projek.'
-                        : 'Executed per JKR technical standards & engineering specifications.'}
+                        ? 'Skop, bahan dan kaedah tertakluk kepada reka bentuk, spesifikasi projek dan kelulusan berkaitan.'
+                        : 'Scope, materials and methods are subject to the design, project specifications and relevant approvals.'}
                     </span>
                     <span className="font-mono text-xs font-bold text-slate-500">BMJ Energy</span>
                   </div>

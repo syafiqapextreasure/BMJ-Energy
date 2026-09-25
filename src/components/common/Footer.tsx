@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="pt-2 text-slate-200 leading-relaxed space-y-2">
 
               <p className="text-sm font-mono text-slate-300 font-medium">
-                No. Pendaftaran: {COMPANY_DATA.registration}
+                {language === 'ms' ? 'No. Pendaftaran:' : 'Registration No.:'} {COMPANY_DATA.registration}
               </p>
               <p className="text-sm text-slate-300">
                 {language === 'ms' ? `Ditubuhkan: ${COMPANY_DATA.establishedMs}` : `Established: ${COMPANY_DATA.establishedEn}`}
@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="text-base font-semibold text-slate-200 hover:text-white transition-colors flex items-center gap-2 py-1 cursor-pointer"
                 >
                   <span className="text-[#C81D25] font-bold text-lg">›</span>
-                  <span>{t.nav.services} (12 Skop)</span>
+                  <span>{t.nav.services} ({language === 'ms' ? '12 Skop' : '12 Service Areas'})</span>
                 </button>
               </li>
               <li>
@@ -120,7 +120,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#F5A623] shrink-0 mt-1" />
                 <div>
-                  <p className="font-bold text-base text-white">Pejabat Pengurusan:</p>
+                  <p className="font-bold text-base text-white">{language === 'ms' ? 'Pejabat Pengurusan:' : 'Management Office:'}</p>
                   <p className="text-sm sm:text-base text-slate-200 leading-relaxed mt-1 font-normal">
                     {COMPANY_DATA.address}
                   </p>
@@ -139,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#F5A623] shrink-0" />
                 <div>
-                  <p className="text-sm text-slate-300 font-medium">Telefon / WhatsApp:</p>
+                  <p className="text-sm text-slate-300 font-medium">{language === 'ms' ? 'Telefon / WhatsApp:' : 'Phone / WhatsApp:'}</p>
                   <a
                     href={`tel:${COMPANY_DATA.phoneRaw}`}
                     className="text-lg sm:text-xl text-white hover:text-[#F5A623] font-extrabold tracking-wide transition-colors"
@@ -152,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-blue-400 shrink-0" />
                 <div>
-                  <p className="text-sm text-slate-300 font-medium">E-mel Rasmi:</p>
+                  <p className="text-sm text-slate-300 font-medium">{language === 'ms' ? 'E-mel Rasmi:' : 'Official Email:'}</p>
                   <a
                     href={`mailto:${COMPANY_DATA.email}`}
                     className="text-sm sm:text-base text-slate-200 hover:text-white break-all font-mono font-medium underline transition-colors"
@@ -176,8 +176,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </p>
               <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
                 {language === 'ms'
-                  ? 'Berpangkalan di Manjung, Perak; hubungi kami untuk semakan kawasan projek di seluruh Perak.'
-                  : 'Based in Manjung, Perak; contact us to verify project feasibility across Perak region.'}
+                  ? 'Berpangkalan di Manjung, Perak; hubungi kami mengenai lokasi projek anda. Liputan tertakluk kepada pengesahan.'
+                  : 'Based in Manjung, Perak; enquire about your project location. Coverage is subject to confirmation.'}
               </p>
             </div>
 

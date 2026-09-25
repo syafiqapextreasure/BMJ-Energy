@@ -138,8 +138,8 @@ export const SUPPORTING_RECORDS: ProjectRecord[] = [
     scopeMs: "Kerja baik pulih dan penyenggaraan kemudahan awam pihak berkuasa tempatan di Sitiawan.",
     scopeEn: "Refurbishment and facility maintenance of municipal lots and market premises in Sitiawan.",
     type: "supporting",
-    attributionNoteMs: "Nota Sumber: Dokumen perolehan ini dialamatkan kepada BMJ MAJU 77 ENTERPRISE. Rekod ini dipaparkan sebagai rujukan entiti sokongan berkaitan pengurusan BMJ.",
-    attributionNoteEn: "Source Note: This procurement document was issued to BMJ MAJU 77 ENTERPRISE. Retained here as an affiliated entity reference under common management.",
+    attributionNoteMs: "Nota Sumber: Dokumen perolehan ini dialamatkan kepada BMJ MAJU 77 ENTERPRISE, bukan BMJ Energy Service And Trading. Dokumen ini tidak membuktikan hubungan antara kedua-dua entiti. Rekod ini bukan kontrak BMJ Energy.",
+    attributionNoteEn: "Source Note: This procurement document is addressed to BMJ MAJU 77 ENTERPRISE, not BMJ Energy Service And Trading. It does not establish a relationship between the two entities. This record is not a BMJ Energy contract.",
     isPublic: true
   },
   {
@@ -240,26 +240,26 @@ export const FAQS_DATA = [
   {
     qMs: "Bagaimanakah cara untuk mendapatkan sebut harga projek atau sewaan jentera?",
     qEn: "How do I request a quotation for a project or machinery rental?",
-    aMs: "Anda boleh mengisi borang sebut harga di laman web ini atau terus klik butang WhatsApp rasmi kami (+60 10-368 9689). Sila nyatakan jenis kerja atau jentera yang diperlukan, anggaran lokasi tapak di Perak, serta tempoh pelaksanaan.",
-    aEn: "You can submit an inquiry through our website form or click our official WhatsApp button (+60 10-368 9689). Please state the nature of work or equipment required, project location in Perak, and expected timeline."
+    aMs: "Isi borang di laman web ini untuk membuka draf mesej WhatsApp atau klik butang WhatsApp rasmi kami. Nyatakan jenis kerja atau jentera, lokasi tapak dan tempoh yang dicadangkan. Semua permintaan tertakluk kepada semakan dan pengesahan.",
+    aEn: "Use the website form to open a WhatsApp message draft or click our official WhatsApp button. Specify the work or equipment, site location and proposed timeline. All requests are subject to review and confirmation."
   },
   {
     qMs: "Di manakah liputan kawasan perkhidmatan BMJ Energy?",
     qEn: "What areas are covered by BMJ Energy?",
-    aMs: "BMJ Energy beroperasi dan berpangkalan di Manjung, Perak (Lumut, Sitiawan, Seri Manjung, Ayer Tawar, Pangkor) dan meliputi kawasan sekitar negeri Perak mengikut kesesuaian skala projek. Hubungi kami untuk semakan lokasi projek anda.",
-    aEn: "BMJ Energy is based in Manjung, Perak (Lumut, Sitiawan, Seri Manjung, Ayer Tawar, Pangkor) and serves projects across Perak state depending on project scope. Contact us to verify your site feasibility."
+    aMs: "BMJ Energy berpangkalan di Manjung, Perak. Hubungi kami dengan lokasi dan skop projek anda; liputan tapak tertakluk kepada semakan dan pengesahan.",
+    aEn: "BMJ Energy is based in Manjung, Perak. Enquire with your site location and project scope; site coverage is subject to review and confirmation."
   },
   {
     qMs: "Adakah sewaan jentera berat disediakan bersama pemandu / operator?",
     qEn: "Is heavy equipment rental provided with an operator?",
-    aMs: "Ya, kami menyediakan pilihan sewaan bersama operator berpengalaman atau sewaan jentera sahaja mengikut kehendak kontraktor dan syarat keselamatan tapak.",
-    aEn: "Yes, we offer flexible options including rental with an experienced operator or machine-only dry hire, subject to contractor competency and site safety rules."
+    aMs: "Nyatakan keperluan operator semasa membuat pertanyaan. Ketersediaan jentera, aturan operator dan syarat sewaan perlu disemak dan disahkan oleh BMJ Energy.",
+    aEn: "Specify your operator requirements when enquiring. Equipment availability, operator arrangements and rental terms must be reviewed and confirmed by BMJ Energy."
   },
   {
     qMs: "Bagaimanakah prosedur penghantaran jentera ke tapak bina?",
     qEn: "How is machinery mobilized to the job site?",
-    aMs: "Jentera berat seperti asphalt paver, roller dan excavator dihantar menggunakan lori lowloader ke tapak projek. Kos mobilisasi akan dinyatakan secara berasingan dan telus dalam sebut harga rasmi.",
-    aEn: "Heavy equipment such as asphalt pavers, rollers, and excavators are transported via lowloader trucks. Mobilisation fees are stated clearly and transparently in our official quotation."
+    aMs: "Kongsi lokasi tapak, keadaan akses dan jentera yang diperlukan. Kaedah pengangkutan, ketersediaan dan sebarang caj mobilisasi tertakluk kepada semakan serta pengesahan dalam sebut harga.",
+    aEn: "Share the site location, access conditions and equipment required. Transport arrangements, availability and any mobilisation charges are subject to review and confirmation in the quotation."
   },
   {
     qMs: "Adakah BMJ Energy berdaftar dengan Suruhanjaya Syarikat Malaysia?",

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { ASSETS_BY_ID, ASSET_SHEET_WIDTH, ASSET_SHEET_HEIGHT } from '@/src/data/assets';
 import { useAssets } from '@/src/context/AssetContext';
 import { getPhotoForAsset } from '@/src/data/imageAssets';
+import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
+import { SERVICES_DATA } from '@/src/data/servicesData';
+import { useLanguage } from '@/src/context/LanguageContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ImageLightboxProps {
@@ -18,6 +21,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   onNavigate
 }) => {
   const { sheetUrl, isSheetAvailable } = useAssets();
+  const { language } = useLanguage();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -46,6 +50,9 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   const currentIndex = assetList.indexOf(currentAssetId);
   const hasNav = assetList.length > 1 && onNavigate;
   const photoSrc = getPhotoForAsset(asset.id, asset.category);
+  const isService = Boolean(SERVICE_IMAGE_OVERRIDES[asset.id]);
+  const service = SERVICES_DATA.find(s => s.primaryAssetId === asset.id || s.assetIds.includes(asset.id));
+  const title = isService && service ? (language === 'ms' ? service.titleMs : service.titleEn) : asset.title;
 
   return (
     <div
@@ -100,7 +107,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative w-full max-h-[70vh] flex items-center justify-center overflow-hidden rounded-2xl bg-slate-950 border border-white/10 shadow-2xl">
-          {isSheetAvailable ? (
+          {!isService && isSheetAvailable ? (
             <svg
               viewBox={`${asset.x} ${asset.y} ${asset.w} ${asset.h}`}
               className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
@@ -115,7 +122,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
           ) : (
             <img
               src={photoSrc}
-              alt={asset.title}
+              alt={title}
               referrerPolicy="no-referrer"
               className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-xl"
             />
@@ -124,13 +131,13 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
 
         {/* Caption */}
         <div className="mt-4 px-6 py-3 rounded-xl bg-slate-900/90 border border-white/10 text-center max-w-2xl w-full text-white backdrop-blur-md">
-          <div className="flex items-center justify-between gap-4 text-xs font-mono text-slate-400 mb-1">
+          {!isService && <div className="flex items-center justify-between gap-4 text-xs font-mono text-slate-400 mb-1">
             <span>ID: {asset.id}</span>
             {hasNav && <span>{currentIndex + 1} / {assetList.length}</span>}
             {asset.profileRef && <span>{asset.profileRef}</span>}
-          </div>
-          <h4 className="text-base font-semibold text-slate-100">{asset.title}</h4>
-          {asset.notes && <p className="text-xs text-slate-300 mt-1">{asset.notes}</p>}
+          </div>}
+          <h4 className="text-base font-semibold text-slate-100">{title}</h4>
+          {!isService && asset.notes && <p className="text-xs text-slate-300 mt-1">{asset.notes}</p>}
         </div>
       </div>
     </div>
