@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <BmjLogo variant="white" className="h-12" />
             <div className="pt-2 text-slate-200 leading-relaxed space-y-2">
-              <p className="font-bold text-base text-white">{COMPANY_DATA.name}</p>
+
               <p className="text-sm font-mono text-slate-300 font-medium">
                 No. Pendaftaran: {COMPANY_DATA.registration}
               </p>

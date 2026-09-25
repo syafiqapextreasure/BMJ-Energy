@@ -86,11 +86,11 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center text-left py-1 shrink-0 focus-visible:outline-2 focus-visible:outline-[#102749] rounded-lg cursor-pointer"
             aria-label="BMJ Energy Service And Trading - Laman Utama"
           >
-            <BmjLogo className="h-10 sm:h-11 md:h-12" />
+            <BmjLogo className="h-12 sm:h-14" />
           </button>
 
           {/* ZONE 2: ALL NAVIGATION LABELS ON 1 ROW */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 flex-nowrap shrink-0">
+          <nav className="hidden xl:flex items-center gap-1 flex-nowrap shrink-0">
             {navLinks.map((link) => {
               const isActive = currentRoute === link.id;
 
@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <button
                       onClick={() => handleNavClick('services')}
                       onMouseEnter={() => setServicesDropdownOpen(true)}
-                      className={`h-10 px-2.5 xl:px-3.5 text-sm xl:text-[15px] font-semibold transition-colors rounded-lg flex items-center gap-1 whitespace-nowrap cursor-pointer ${
+                      className={`h-11 px-3 text-base font-semibold transition-colors rounded-lg flex items-center gap-1 whitespace-nowrap cursor-pointer ${
                         isActive
                           ? 'text-[#102749] bg-slate-100 font-bold'
                           : 'text-slate-700 hover:text-[#102749] hover:bg-slate-100/70'
@@ -156,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`h-10 px-2.5 xl:px-3.5 text-sm xl:text-[15px] font-semibold transition-colors rounded-lg whitespace-nowrap shrink-0 cursor-pointer ${
+                  className={`h-11 px-3 text-base font-semibold transition-colors rounded-lg whitespace-nowrap shrink-0 cursor-pointer ${
                     isActive
                       ? 'text-[#102749] bg-slate-100 font-bold'
                       : 'text-slate-700 hover:text-[#102749] hover:bg-slate-100/70'
@@ -169,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* ZONE 3: ACTIONS ON SAME ROW (Language switch) */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0 flex-nowrap">
+          <div className="hidden xl:flex items-center gap-2 xl:gap-3 shrink-0 flex-nowrap">
             {/* Language Switch */}
             <button
               onClick={toggleLanguage}
@@ -182,15 +182,8 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          {/* Mobile Hamburger & Controls (< lg) */}
-          <div className="flex lg:hidden items-center gap-2 shrink-0">
-            <button
-              onClick={toggleLanguage}
-              className="px-2.5 py-1.5 rounded-lg border border-slate-300 text-slate-700 text-xs font-bold"
-              aria-label="Tukar Bahasa"
-            >
-              {language === 'ms' ? 'EN' : 'BM'}
-            </button>
+          {/* At constrained widths, keep the logo and menu on one readable row. */}
+          <div className="flex xl:hidden items-center gap-2 shrink-0">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="min-h-[44px] min-w-[44px] p-2 rounded-lg text-slate-700 hover:bg-slate-100 flex items-center justify-center cursor-pointer"
@@ -205,8 +198,15 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* MOBILE DRAWER */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white shadow-xl animate-in slide-in-from-top-4 duration-200">
+        <div className="xl:hidden border-t border-slate-200 bg-white shadow-xl animate-in slide-in-from-top-4 duration-200">
           <div className="px-4 pt-3 pb-6 space-y-1">
+            <button
+              onClick={toggleLanguage}
+              className="min-h-[44px] px-4 rounded-lg border border-slate-300 text-slate-700 text-base font-bold"
+              aria-label="Tukar Bahasa"
+            >
+              {language === 'ms' ? 'English' : 'Bahasa Melayu'}
+            </button>
             {navLinks.map((link) => (
               <button
                 key={link.id}
