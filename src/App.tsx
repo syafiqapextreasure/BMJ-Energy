@@ -20,6 +20,8 @@ import { EquipmentPage } from '@/src/components/pages/EquipmentPage';
 import { PortfolioPage } from '@/src/components/pages/PortfolioPage';
 import { ContactPage } from '@/src/components/pages/ContactPage';
 import { Image as ImageIcon } from 'lucide-react';
+import { SERVICES_DATA } from '@/src/data/servicesData';
+import { RENTAL_EQUIPMENT } from '@/src/data/rentalData';
 
 function MainApp() {
   const { language } = useLanguage();
@@ -74,7 +76,9 @@ function MainApp() {
 
   const handleOpenLightbox = (assetId: string, assetList?: string[]) => {
     setLightboxAssetId(assetId);
-    setLightboxAssetList(assetList || [assetId]);
+    const service = SERVICES_DATA.find(s => s.assetIds.includes(assetId));
+    const equipment = RENTAL_EQUIPMENT.find(e => e.assetIds.includes(assetId));
+    setLightboxAssetList(assetList || service?.assetIds || equipment?.assetIds || [assetId]);
   };
 
   const handleCloseLightbox = () => {

@@ -82,8 +82,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     dateStr: "Ogos 2023",
     dateType: "document",
     category: "supply",
-    pdfRef: "Profil ms. 36–38 (Foto A018–A025)",
-    assetIds: ["A018", "A019", "A020", "A021", "A022", "A023", "A024", "A025"],
+    pdfRef: "Profil ms. 36–38",
     scopeMs: "Fabrikasi, pembekalan dan pemasangan papan paparan berbingkai termasuk Sudut Anugerah KD Malaya, carta organisasi dan papan dasar keselamatan & kesihatan pekerjaan.",
     scopeEn: "Fabrication, delivery, and mounting of framed display units including KD Malaya Award showcase, organization charts, and Occupational Safety & Health (OSH) noticeboards.",
     type: "completed",
@@ -98,8 +97,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     dateStr: "Julai 2023",
     dateType: "document",
     category: "maintenance",
-    pdfRef: "Profil ms. 39–44, 52–55 (Foto A026–A041)",
-    assetIds: ["A026", "A027", "A028", "A029", "A030", "A031", "A032", "A033", "A034", "A035", "A036", "A037", "A038", "A039", "A040", "A041"],
+    pdfRef: "Profil ms. 39–44",
     scopeMs: "Kerja penggantian dan penyelenggaraan jubin lantai tahan lasak bagi kawasan bilik sejuk beku, ruang sejuk dingin dan lobi kapal tentera laut KD Mahawangsa.",
     scopeEn: "Heavy-duty commercial floor tiling removal, substrate leveling, and non-slip hygienic tile installation across cold storage, freezer compartments, and lobby on naval vessel KD Mahawangsa.",
     type: "completed",
@@ -179,6 +177,39 @@ export const SUPPORTING_RECORDS: ProjectRecord[] = [
 ];
 
 export const PHOTO_ONLY_ARCHIVES: PhotoOnlyGallery[] = [
+  {
+    id: "display-boards",
+    titleMs: "Sudut Anugerah & Papan Paparan KD Malaya",
+    titleEn: "KD Malaya Award Corner & Display Boards",
+    category: "Pembekalan",
+    assetIds: ["A018", "A019", "A020", "A021", "A022", "A023", "A024", "A025"],
+    descMs: "Foto papan paparan berbingkai dan kerja pemasangan di lokasi. Rekod visual ini diasingkan daripada kontrak bertarikh.",
+    descEn: "Original photographs of framed display boards and on-site installation, presented separately from dated contract records.",
+    sourceNoteMs: "Rekod visual papan paparan.",
+    sourceNoteEn: "Display-board visual record."
+  },
+  {
+    id: "mosaic-floor-maintenance",
+    titleMs: "Penyelenggaraan Lantai Mozek",
+    titleEn: "Mosaic Floor Maintenance",
+    category: "Penyelenggaraan",
+    assetIds: ["A026", "A027", "A028", "A029", "A030", "A031", "A032", "A033"],
+    descMs: "Persediaan permukaan dan kerja lantai dalam ruang dalaman, termasuk keadaan sebelum dan selepas kerja.",
+    descEn: "Interior floor preparation and maintenance, showing work in progress and finished surfaces.",
+    sourceNoteMs: "Rekod visual penyelenggaraan lantai.",
+    sourceNoteEn: "Floor-maintenance visual record."
+  },
+  {
+    id: "industrial-floor-repair",
+    titleMs: "Senggaraan Mozek KD Mahawangsa, TLDM Lumut",
+    titleEn: "KD Mahawangsa Mosaic Maintenance, TLDM Lumut",
+    category: "Penyelenggaraan",
+    assetIds: ["A034", "A035", "A036", "A037", "A038", "A039", "A040", "A041"],
+    descMs: "Kerja pembaikan lantai, penyediaan bahan dan kemasan permukaan dalam ruang industri.",
+    descEn: "Floor repair, material preparation and completed surfaces in an industrial interior.",
+    sourceNoteMs: "Rekod visual pembaikan lantai.",
+    sourceNoteEn: "Floor-repair visual record."
+  },
   {
     id: "mpm-road-patching",
     titleMs: "Kerja Tampalan Jalan Asfalt (MPM)",

@@ -1,4 +1,5 @@
 import { SERVICE_IMAGE_OVERRIDES } from './serviceImageOverrides';
+import { ORIGINAL_PHOTO_OVERRIDES } from './originalPhotoOverrides';
 import heroBg from '@/src/assets/images/hero_construction_bg_1790357507939.jpg';
 import paverYellow from '@/src/assets/images/asphalt_paver_yellow_1790357522181.jpg';
 import paverBlue from '@/src/assets/images/asphalt_paver_blue_1790357540660.jpg';
@@ -34,7 +35,10 @@ export const PHOTO_REGISTRY = {
 /**
  * Returns the relevant real photographic asset for any asset ID or fallback category.
  */
+export const ILLUSTRATION_ASSETS: Record<string, string> = Object.fromEntries(Object.entries(PHOTO_REGISTRY).map(([key, url]) => [`ILL-${key}`, url]));
 export function getPhotoForAsset(assetId: string, category?: string): string {
+  if (ILLUSTRATION_ASSETS[assetId]) return ILLUSTRATION_ASSETS[assetId];
+  if (ORIGINAL_PHOTO_OVERRIDES[assetId]) return ORIGINAL_PHOTO_OVERRIDES[assetId];
   if (SERVICE_IMAGE_OVERRIDES[assetId]) return SERVICE_IMAGE_OVERRIDES[assetId];
   // Direct ID mappings
   switch (assetId) {

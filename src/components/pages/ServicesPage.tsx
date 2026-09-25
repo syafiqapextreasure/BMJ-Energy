@@ -4,6 +4,8 @@ import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPANY_DATA } from '@/src/data/companyData';
 import { SERVICES_DATA } from '@/src/data/servicesData';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
+import { SERVICE_THUMBNAILS } from '@/src/data/serviceThumbnails';
+import { getPhotoForAsset } from '@/src/data/imageAssets';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import { YellowAngleBox } from '@/src/components/common/YellowAngleBox';
 import {
@@ -165,24 +167,26 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   {/* Primary Photo with YellowAngleBox */}
                   <div className="p-2 sm:p-3">
                     <YellowAngleBox angleSize="md" className="w-full">
-                      <button type="button" className="block w-full aspect-[4/3] bg-slate-50 cursor-pointer" aria-label={title} onClick={() => onOpenLightbox(service.primaryAssetId)}>
-                        <img src={SERVICE_IMAGE_OVERRIDES[service.primaryAssetId]} alt={title} loading="lazy" className={`w-full h-full object-contain ${index >= 8 ? 'p-16' : ''}`} />
+                      <button data-asset-id={service.primaryAssetId} type="button" className="block w-full aspect-[4/3] bg-slate-50 cursor-pointer" aria-label={title} onClick={() => onOpenLightbox(service.primaryAssetId)}>
+                        <img src={getPhotoForAsset(service.primaryAssetId)} alt={`${title} — AI illustration`} loading="lazy" className="w-full h-full object-cover" />
                       </button>
                     </YellowAngleBox>
+                    <p className="mt-3 text-xs text-slate-500">{language === 'ms' ? 'Ilustrasi AI • Bukan rekod projek' : 'AI illustration • Not a project record'}</p>
                   </div>
 
                   {/* Supporting Photos Gallery */}
-                  {service.assetIds.length > 1 && (
+                  {service.assetIds.length > 0 && (
                     <div className="grid grid-cols-3 gap-2.5 pt-1">
                       {service.assetIds.map((id) => (
                         <button
                           type="button"
+                          data-asset-id={id}
                           aria-label={`${title} — ${service.assetIds.indexOf(id) + 1}`}
                           key={id}
-                          className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 cursor-pointer bg-slate-900 shadow-sm hover:border-[#F5A623] transition-colors"
+                          className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 cursor-pointer bg-white shadow-sm hover:border-[#F5A623] transition-colors"
                           onClick={() => onOpenLightbox(id)}
                         >
-                          <img src={SERVICE_IMAGE_OVERRIDES[id]} alt={title} loading="lazy" className="w-full h-full object-contain" />
+                          <img data-service-thumbnail={index < 8 ? id : undefined} src={SERVICE_THUMBNAILS[id] || SERVICE_IMAGE_OVERRIDES[id]} alt={title} loading="lazy" className={`w-full h-full ${index < 8 ? 'object-cover' : 'object-contain p-3'}`} />
                         </button>
                       ))}
                     </div>

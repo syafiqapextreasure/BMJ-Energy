@@ -3,7 +3,17 @@ import { RouteId } from '@/src/types';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPANY_DATA } from '@/src/data/companyData';
 import { RENTAL_EQUIPMENT } from '@/src/data/rentalData';
-import { AssetImage } from '@/src/components/common/AssetImage';
+import { PHOTO_REGISTRY } from '@/src/data/imageAssets';
+
+// Illustrative hero sources deliberately bypass documentary asset-ID overrides.
+const RENTAL_ILLUSTRATIONS: Record<string, string> = {
+  'asphalt-paver-yellow': PHOTO_REGISTRY.paverYellow,
+  'asphalt-paver-blue': PHOTO_REGISTRY.paverBlue,
+  'road-roller': PHOTO_REGISTRY.roller,
+  excavator: PHOTO_REGISTRY.excavator,
+  'tipper-lorry': PHOTO_REGISTRY.lorry,
+};
+import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import {
   Truck,
@@ -148,15 +158,14 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
                   <div>
                     {/* Primary Photo */}
                     <div className="relative aspect-[4/3] bg-slate-900 overflow-hidden">
-                      <AssetImage
-                        assetId={equip.primaryAssetId}
-                        alt={name}
-                        aspectRatio="aspect-[4/3]"
-                        onClick={() => onOpenLightbox(equip.primaryAssetId)}
-                        className="cursor-pointer"
+                      <img
+                        src={RENTAL_ILLUSTRATIONS[equip.id]}
+                        alt={`${name} — ${language === 'ms' ? 'ilustrasi AI' : 'AI illustration'}`}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
                       />
-                      <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 text-white font-mono text-xs">
-                        {equip.primaryAssetId}
+                      <span className="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/70 text-white text-xs">
+                        {language === 'ms' ? 'Ilustrasi jentera • Foto sebenar di bawah' : 'Equipment illustration • Original photos below'}
                       </span>
                     </div>
 
@@ -164,13 +173,16 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
                     {equip.assetIds.length > 1 && (
                       <div className="p-3 bg-slate-50 border-b border-slate-200 flex gap-2 overflow-x-auto">
                         {equip.assetIds.map((id) => (
-                          <div
+                          <button
+                            type="button"
                             key={id}
-                            className="w-16 h-12 rounded overflow-hidden border border-slate-300 cursor-pointer shrink-0"
+                            aria-label={`${language === 'ms' ? 'Lihat foto asal' : 'View original photo'}: ${name} (${id})`}
+                            data-asset-id={id}
+                            className="w-16 h-12 rounded overflow-hidden border border-slate-300 cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-blue-600"
                             onClick={() => onOpenLightbox(id)}
                           >
-                            <AssetImage assetId={id} aspectRatio="aspect-auto" />
-                          </div>
+                            <img src={ORIGINAL_PHOTO_OVERRIDES[id]} alt={name} loading="lazy" className="w-full h-full object-contain" />
+                          </button>
                         ))}
                       </div>
                     )}

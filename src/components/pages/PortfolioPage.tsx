@@ -376,7 +376,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
               >
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-[#C81D25]">
-                    {language === 'ms' ? gallery.category : ({ 'Jalan Raya': 'Roads', 'Penyelenggaraan': 'Maintenance', 'Keselamatan Jalan': 'Road Safety' }[gallery.category] || gallery.category)}
+                    {language === 'ms' ? gallery.category : ({ 'Pembekalan': 'Supply', 'Jalan Raya': 'Roads', 'Penyelenggaraan': 'Maintenance', 'Keselamatan Jalan': 'Road Safety' }[gallery.category] || gallery.category)}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#102749] mt-1">
                     {language === 'ms' ? gallery.titleMs : gallery.titleEn}
@@ -392,6 +392,10 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                     <div
                       key={id}
                       className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 shadow-xs cursor-pointer group bg-slate-900"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={id}
+                      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpenLightbox(id, gallery.assetIds); } }}
                       onClick={() => onOpenLightbox(id, gallery.assetIds)}
                     >
                       <AssetImage assetId={id} aspectRatio="aspect-[4/3]" />

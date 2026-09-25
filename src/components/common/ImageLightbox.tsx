@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { ASSETS_BY_ID, ASSET_SHEET_WIDTH, ASSET_SHEET_HEIGHT } from '@/src/data/assets';
 import { useAssets } from '@/src/context/AssetContext';
-import { getPhotoForAsset } from '@/src/data/imageAssets';
+import { getPhotoForAsset, ILLUSTRATION_ASSETS } from '@/src/data/imageAssets';
+import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
 import { SERVICES_DATA } from '@/src/data/servicesData';
 import { useLanguage } from '@/src/context/LanguageContext';
@@ -44,15 +45,16 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
 
   if (!currentAssetId) return null;
 
-  const asset = ASSETS_BY_ID[currentAssetId];
+  const isIllustration = Boolean(ILLUSTRATION_ASSETS[currentAssetId]);
+  const asset = ASSETS_BY_ID[currentAssetId] || (isIllustration ? { id: currentAssetId, title: language === 'ms' ? 'Ilustrasi AI — bukan rekod projek' : 'AI illustration — not a project record', category: 'illustration', x: 0, y: 0, w: 0, h: 0, profileRef: '', notes: '' } : null);
   if (!asset) return null;
 
   const currentIndex = assetList.indexOf(currentAssetId);
   const hasNav = assetList.length > 1 && onNavigate;
   const photoSrc = getPhotoForAsset(asset.id, asset.category);
-  const isService = Boolean(SERVICE_IMAGE_OVERRIDES[asset.id]);
+  const isService = Boolean(SERVICE_IMAGE_OVERRIDES[asset.id]) || isIllustration;
   const service = SERVICES_DATA.find(s => s.primaryAssetId === asset.id || s.assetIds.includes(asset.id));
-  const title = isService && service ? (language === 'ms' ? service.titleMs : service.titleEn) : asset.title;
+  const title = !isIllustration && isService && service ? (language === 'ms' ? service.titleMs : service.titleEn) : asset.title;
 
   return (
     <div
@@ -107,7 +109,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative w-full max-h-[70vh] flex items-center justify-center overflow-hidden rounded-2xl bg-slate-950 border border-white/10 shadow-2xl">
-          {!isService && isSheetAvailable ? (
+          {!isService && !ORIGINAL_PHOTO_OVERRIDES[asset.id] && isSheetAvailable ? (
             <svg
               viewBox={`${asset.x} ${asset.y} ${asset.w} ${asset.h}`}
               className="max-w-full max-h-[70vh] w-auto h-auto object-contain"

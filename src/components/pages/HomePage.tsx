@@ -240,6 +240,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </span>
               </div>
 
+              <p className="px-4 pt-3 text-xs text-slate-500">{language === 'ms' ? 'Ilustrasi AI • Foto asal di bawah' : 'AI illustration • Original photos below'}</p>
+              <div className="grid grid-cols-3 gap-2 p-3">
+                {service.assetIds.map(id => <AssetImage key={id} assetId={id} alt={language === 'ms' ? service.titleMs : service.titleEn} onClick={() => onOpenLightbox(id)} className="w-full" />)}
+              </div>
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div className="space-y-2.5">
                   <h3 className="text-lg sm:text-xl font-bold text-[#102749] leading-snug group-hover:text-[#1B4D89] transition-colors">
@@ -372,12 +376,12 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {COMPLETED_PROJECTS.filter((p) => p.assetIds && p.assetIds.length > 0).slice(0, 3).map((project) => (
+          {COMPLETED_PROJECTS.slice(0, 3).map((project) => (
             <div
               key={project.id}
               className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col"
             >
-              <div className="relative aspect-[16/10] bg-slate-900">
+              <div className={`relative bg-slate-900 ${project.assetIds?.length ? 'aspect-[16/10]' : 'h-12'}`}>
                 {project.assetIds?.[0] && (
                   <AssetImage
                     assetId={project.assetIds[0]}

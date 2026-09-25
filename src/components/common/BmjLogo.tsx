@@ -1,35 +1,42 @@
 import React from 'react';
-import originalLogo from '@/src/assets/branding/bmj-energy-display.png';
+import symbol from '@/src/assets/branding/bmj-energy-symbol.png';
+import wordmark from '@/src/assets/branding/bmj-energy-wordmark.png';
 
 interface BmjLogoProps {
   className?: string;
   variant?: 'full' | 'compact' | 'white';
+  /** Retained for caller compatibility; the artwork lockup has no subtitle. */
   showSubtitle?: boolean;
 }
 
 export const BmjLogo: React.FC<BmjLogoProps> = ({
   className = 'h-12 sm:h-14',
   variant = 'full',
-  showSubtitle = true
 }) => (
-  <div className={`inline-flex flex-nowrap items-center gap-2 select-none max-w-full ${className}`} data-brand-logo>
-    {/* Exact supplied artwork, including its embedded lettering; no redraw or colour filter. */}
+  <div
+    className={`inline-flex max-w-full flex-nowrap items-center gap-2 select-none ${variant === 'white' ? 'rounded-md bg-white p-1.5' : ''} ${className}`}
+    role="img"
+    aria-label="BMJ Energy Service And Trading"
+    data-brand-logo
+  >
+    {/* Lossless crops of the supplied artwork: original colours and proportions. */}
     <img
-      src={originalLogo}
-      alt="BMJ Energy original logo"
-      width={430}
-      height={344}
-      className="h-full w-auto shrink-0 object-contain bg-white rounded-sm"
+      src={symbol}
+      alt=""
+      aria-hidden="true"
+      width={293}
+      height={257}
+      className="h-full w-auto shrink-0 object-contain"
+      data-brand-symbol
     />
-    <div className="flex flex-col justify-center leading-tight whitespace-nowrap" data-brand-label>
-      <span className={`font-extrabold tracking-tight text-base sm:text-lg ${variant === 'white' ? 'text-white' : 'text-[#102749]'}`}>
-        BMJ ENERGY
-      </span>
-      {showSubtitle && (
-        <span className={`font-bold text-[9.5px] sm:text-[10px] tracking-[0.06em] mt-1 ${variant === 'white' ? 'text-red-300' : 'text-[#C81D25]'}`}>
-          SERVICE AND TRADING
-        </span>
-      )}
-    </div>
+    <img
+      src={wordmark}
+      alt=""
+      aria-hidden="true"
+      width={429}
+      height={49}
+      className="h-auto w-[200px] min-w-0 sm:w-[224px] object-contain"
+      data-brand-label
+    />
   </div>
 );

@@ -3,6 +3,8 @@ import { ASSETS_BY_ID, ASSET_SHEET_WIDTH, ASSET_SHEET_HEIGHT } from '@/src/data/
 import { useAssets } from '@/src/context/AssetContext';
 import { getPhotoForAsset } from '@/src/data/imageAssets';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
+import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
+import { SERVICE_THUMBNAILS } from '@/src/data/serviceThumbnails';
 import { Eye } from 'lucide-react';
 
 interface AssetImageProps {
@@ -29,11 +31,12 @@ export const AssetImage: React.FC<AssetImageProps> = ({
   const asset = ASSETS_BY_ID[assetId];
 
   const label = alt || asset?.title || 'BMJ Energy Engineering & Machinery';
-  const realPhotoSrc = getPhotoForAsset(assetId, asset?.category);
+  const realPhotoSrc = SERVICE_THUMBNAILS[assetId] || getPhotoForAsset(assetId, asset?.category);
   const isClickable = Boolean(onClick);
 
   return (
     <div
+      data-asset-id={assetId}
       onClick={onClick}
       role={isClickable ? 'button' : undefined}
       tabIndex={isClickable ? 0 : undefined}
@@ -44,7 +47,7 @@ export const AssetImage: React.FC<AssetImageProps> = ({
       aria-label={label}
     >
       {/* 1. Spritesheet clipping IF spritesheet is explicitly uploaded & available */}
-      {!SERVICE_IMAGE_OVERRIDES[assetId] && isSheetAvailable && !spriteError && asset ? (
+      {!ORIGINAL_PHOTO_OVERRIDES[assetId] && !SERVICE_IMAGE_OVERRIDES[assetId] && isSheetAvailable && !spriteError && asset ? (
         <svg
           viewBox={`${asset.x} ${asset.y} ${asset.w} ${asset.h}`}
           className={`w-full h-full ${objectFit === 'contain' ? 'object-contain' : 'object-cover'} transition-transform duration-500 ${isClickable ? 'group-hover:scale-105' : ''}`}
