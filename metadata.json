@@ -1,0 +1,6 @@
+{
+  "name": "BMJ Energy Service And Trading",
+  "description": "Pakar Kerja Jalan, Kejuruteraan Awam & Sewaan Jentera Berat di Manjung, Perak. Perkhidmatan kejuruteraan awam, turapan jalan premix, kerja saliran, dan penyewaan jentera pembinaan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
