@@ -94,14 +94,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
             {t.portfolio.subtitle}
           </p>
 
-          <div className="mt-4 p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-600 leading-relaxed max-w-4xl">
-            <span className="font-bold text-slate-800">
-              {language === 'ms' ? 'Nota Ketepatan Rekod:' : 'Record Accuracy Note:'}
-            </span>{' '}
-            {language === 'ms'
-              ? 'Tarikh projek yang dipaparkan adalah tarikh dokumen/kontrak rasmi berpandukan dokumen sokongan, dan penyiapan adalah sepertimana dibentangkan dalam "List of Finished Project" profil syarikat.'
-              : 'Stated project dates represent official document/contract dates referenced from source paperwork; project completions are presented as recorded in the company profile.'}
-          </div>
         </div>
       </section>
 
@@ -207,7 +199,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                       {/* Left Info (Cols 8) */}
-                      <div className="lg:col-span-8 space-y-4">
+                      <div className={`${hasPhotos ? 'lg:col-span-8' : 'lg:col-span-12'} space-y-4`}>
                         <div className="flex flex-wrap items-center gap-2.5">
                           <span className="px-3.5 py-1 rounded-md bg-[#102749] text-white font-mono font-bold text-sm">
                             {project.code}
@@ -282,18 +274,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                             </button>
                           )}
                         </div>
-                      ) : (
-                        <div className="lg:col-span-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500">
-                          <p className="font-semibold text-slate-700 mb-1">
-                            {language === 'ms' ? 'Rekod Bertulis Profil' : 'Documented Profile Record'}
-                          </p>
-                          <p>
-                            {language === 'ms'
-                              ? 'Direkodkan dalam daftar projek profil syarikat. Tiada lampiran foto berasingan.'
-                              : 'Documented in company profile project register. No separate image tile.'}
-                          </p>
-                        </div>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 );

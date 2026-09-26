@@ -5,6 +5,7 @@ import { getPhotoForAsset } from '@/src/data/imageAssets';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
 import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { SERVICE_THUMBNAILS } from '@/src/data/serviceThumbnails';
+import { EQUIPMENT_IMAGE_OVERRIDES } from '@/src/data/equipmentImageOverrides';
 import { Eye } from 'lucide-react';
 
 interface AssetImageProps {
@@ -31,7 +32,7 @@ export const AssetImage: React.FC<AssetImageProps> = ({
   const asset = ASSETS_BY_ID[assetId];
 
   const label = alt || asset?.title || 'BMJ Energy Engineering & Machinery';
-  const realPhotoSrc = SERVICE_THUMBNAILS[assetId] || SERVICE_IMAGE_OVERRIDES[assetId] || getPhotoForAsset(assetId, asset?.category);
+  const realPhotoSrc = SERVICE_THUMBNAILS[assetId] || SERVICE_IMAGE_OVERRIDES[assetId] || EQUIPMENT_IMAGE_OVERRIDES[assetId] || getPhotoForAsset(assetId, asset?.category);
   const isClickable = Boolean(onClick);
 
   return (

@@ -174,11 +174,11 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={toggleLanguage}
               className="h-10 px-3 flex items-center gap-1.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 text-sm font-bold transition-colors focus-visible:outline-[#102749] cursor-pointer shrink-0"
-              aria-label={`Tukar bahasa kepada ${language === 'ms' ? 'English' : 'Bahasa Melayu'}`}
+              aria-label={`Bahasa semasa: ${language === 'ms' ? 'Bahasa Melayu' : 'English'}. ${language === 'ms' ? 'Tukar kepada English' : 'Switch to Bahasa Melayu'}`}
               title="Tukar Bahasa / Switch Language"
             >
               <Globe className="w-4 h-4 text-slate-500" />
-              <span>{language === 'ms' ? 'EN' : 'BM'}</span>
+              <span>{language === 'ms' ? 'BM' : 'EN'}</span>
             </button>
           </div>
 
@@ -205,7 +205,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="min-h-[44px] px-4 rounded-lg border border-slate-300 text-slate-700 text-base font-bold"
               aria-label="Tukar Bahasa"
             >
-              {language === 'ms' ? 'English' : 'Bahasa Melayu'}
+              {language === 'ms' ? 'BM' : 'EN'}
             </button>
             {navLinks.map((link) => (
               <button

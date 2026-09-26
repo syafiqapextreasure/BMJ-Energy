@@ -175,7 +175,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   onClick={() => onNavigate('about')}
                   className="inline-flex items-center gap-2.5 text-[#102749] hover:text-[#1B4D89] font-extrabold text-base sm:text-lg transition-colors cursor-pointer"
                 >
-                  <span>{language === 'ms' ? 'Baca Profil Penuh & Maklumat Pasukan' : 'Read Our Full Profile & Team'}</span>
+                  <span>{language === 'ms' ? 'Lihat Maklumat Syarikat & Pasukan' : 'View Company & Team Details'}</span>
                   <ArrowRight className="w-5 h-5 text-[#C81D25]" />
                 </button>
               </div>
@@ -220,27 +220,34 @@ export const HomePage: React.FC<HomePageProps> = ({
           </button>
         </div>
 
-        {/* Grid: 6 marquee services highlighted with authentic photos */}
+        {/* Grid: 6 marquee services; only the lead card carries the requested single visual */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES_DATA.slice(0, 6).map((service) => (
+          {SERVICES_DATA.slice(0, 6).map((service, index) => (
             <div
               key={service.id}
               className="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                <AssetImage
-                  assetId={service.primaryAssetId}
-                  alt={language === 'ms' ? service.titleMs : service.titleEn}
-                  aspectRatio="aspect-[16/10]"
-                  onClick={() => onOpenLightbox(service.primaryAssetId)}
-                  className="cursor-pointer"
-                />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#102749]/90 text-white font-mono text-sm font-bold backdrop-blur-xs">
-                  {service.num}
-                </span>
-              </div>
+              {index === 0 ? (
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                  <AssetImage
+                    assetId={service.primaryAssetId}
+                    alt={language === 'ms' ? service.titleMs : service.titleEn}
+                    aspectRatio="aspect-[16/10]"
+                    onClick={() => onOpenLightbox(service.primaryAssetId)}
+                    className="cursor-pointer"
+                  />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#102749]/90 text-white font-mono text-sm font-bold backdrop-blur-xs">
+                    {service.num}
+                  </span>
+                </div>
+              ) : null}
 
               <div className="p-6 flex-1 flex flex-col justify-between">
+                {index !== 0 ? (
+                  <span className="mb-4 inline-flex w-fit px-2.5 py-1 rounded bg-[#102749] text-white font-mono text-sm font-bold">
+                    {service.num}
+                  </span>
+                ) : null}
                 <div className="space-y-2.5">
                   <h3 className="text-lg sm:text-xl font-bold text-[#102749] leading-snug group-hover:text-[#1B4D89] transition-colors">
                     {language === 'ms' ? service.titleMs : service.titleEn}
@@ -406,8 +413,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {language === 'ms' ? project.scopeMs : project.scopeEn}
                   </p>
                 </div>
-                <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-sm">
-                  <span className="text-slate-500 font-mono text-xs">{project.pdfRef}</span>
+                <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-sm">
                   <button
                     onClick={() => onNavigate('portfolio')}
                     className="font-bold text-[#102749] hover:underline cursor-pointer"

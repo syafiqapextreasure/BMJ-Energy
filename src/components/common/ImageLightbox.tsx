@@ -4,6 +4,7 @@ import { useAssets } from '@/src/context/AssetContext';
 import { getPhotoForAsset, ILLUSTRATION_ASSETS } from '@/src/data/imageAssets';
 import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
+import { EQUIPMENT_IMAGE_OVERRIDES } from '@/src/data/equipmentImageOverrides';
 import { SERVICES_DATA } from '@/src/data/servicesData';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -51,7 +52,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
 
   const currentIndex = assetList.indexOf(currentAssetId);
   const hasNav = assetList.length > 1 && onNavigate;
-  const photoSrc = getPhotoForAsset(asset.id, asset.category);
+  const photoSrc = SERVICE_IMAGE_OVERRIDES[asset.id] || EQUIPMENT_IMAGE_OVERRIDES[asset.id] || getPhotoForAsset(asset.id, asset.category);
   const isService = Boolean(SERVICE_IMAGE_OVERRIDES[asset.id]) || isIllustration;
   const service = SERVICES_DATA.find(s => s.primaryAssetId === asset.id || s.assetIds.includes(asset.id));
   const title = !isIllustration && isService && service ? (language === 'ms' ? service.titleMs : service.titleEn) : asset.title;

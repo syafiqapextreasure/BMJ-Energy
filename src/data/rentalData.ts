@@ -3,7 +3,7 @@ import { EquipmentItem } from "@/src/types";
 export const RENTAL_EQUIPMENT: EquipmentItem[] = [
   {
     id: "asphalt-paver-yellow",
-    nameMs: "Asphalt Paver (Kuning)",
+    nameMs: "Jentera Penurap Asfalt (Kuning)",
     nameEn: "Asphalt Paver (Yellow)",
     typeMs: "Jentera Penurap Asfalt Premix",
     typeEn: "Asphalt Premix Paving Machine",
@@ -21,18 +21,18 @@ export const RENTAL_EQUIPMENT: EquipmentItem[] = [
       "Available with skilled operator or equipment-only rental",
       "Competitive quote-based hire tailored to duration and location"
     ],
-    termsMs: "Penghantaran melalui lori lowloader. Sila hubungi BMJ untuk semakan jadual dan ketersediaan jentera.",
+    termsMs: "Penghantaran menggunakan lori low-loader. Sila hubungi BMJ untuk semakan jadual dan ketersediaan jentera.",
     termsEn: "Mobilisation via lowloader. Contact BMJ to verify schedule and machine availability."
   },
   {
     id: "asphalt-paver-blue",
-    nameMs: "Asphalt Paver (Biru)",
+    nameMs: "Jentera Penurap Asfalt (Biru)",
     nameEn: "Asphalt Paver (Blue)",
     typeMs: "Jentera Penurap Asfalt Premix",
     typeEn: "Asphalt Premix Paving Machine",
     assetIds: ["A016", "A063"],
     primaryAssetId: "A016",
-    descriptionMs: "Jentera penurap jalan asfalt premix unit kedua dalam inventori operasi BMJ untuk kelancaran pelaksanaan kerja penurapan berskala sederhana dan besar.",
+    descriptionMs: "Jentera penurap asfalt premix unit kedua dalam inventori operasi BMJ untuk melancarkan kerja penurapan berskala sederhana dan besar.",
     descriptionEn: "Second active asphalt paver unit in BMJ's operating inventory, supporting medium to large-scale resurfacing projects.",
     highlightsMs: [
       "Operasi hamparan asfalt yang lancar dan kemas",
@@ -49,7 +49,7 @@ export const RENTAL_EQUIPMENT: EquipmentItem[] = [
   },
   {
     id: "road-roller",
-    nameMs: "Tandem Road Roller / Compactor",
+    nameMs: "Penggelek Jalan Tandem / Pemadat",
     nameEn: "Tandem Road Roller / Compactor",
     typeMs: "Jentera Penggelek & Pemadat Jalan",
     typeEn: "Road Compaction Roller",
@@ -67,7 +67,7 @@ export const RENTAL_EQUIPMENT: EquipmentItem[] = [
       "Available with an experienced operator on request",
       "Custom competitive rates based on project site location"
     ],
-    termsMs: "Penghantaran dan bahan api boleh dirundingkan dalam sebut harga.",
+    termsMs: "Kos penghantaran dan bahan api boleh diselaraskan dalam sebut harga.",
     termsEn: "Mobilisation and fuel arrangements discussed during quotation."
   },
   {
@@ -95,7 +95,7 @@ export const RENTAL_EQUIPMENT: EquipmentItem[] = [
   },
   {
     id: "tipper-lorry",
-    nameMs: "Lori Tipper / Dump Truck",
+    nameMs: "Lori Tipper / Lori Angkut Bahan",
     nameEn: "Tipper Lorry / Dump Truck",
     typeMs: "Kenderaan Pengangkutan Bahan Binaan",
     typeEn: "Aggregate & Materials Haulage Truck",

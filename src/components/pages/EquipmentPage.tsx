@@ -4,6 +4,7 @@ import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPANY_DATA } from '@/src/data/companyData';
 import { RENTAL_EQUIPMENT } from '@/src/data/rentalData';
 import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
+import { EQUIPMENT_IMAGE_OVERRIDES } from '@/src/data/equipmentImageOverrides';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import {
   Truck,
@@ -150,7 +151,7 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
                     {/* Primary original fleet photograph */}
                     <div className="relative aspect-[4/3] bg-slate-900 overflow-hidden">
                       <img
-                        src={ORIGINAL_PHOTO_OVERRIDES[equip.primaryAssetId]}
+                        src={EQUIPMENT_IMAGE_OVERRIDES[equip.primaryAssetId] || ORIGINAL_PHOTO_OVERRIDES[equip.primaryAssetId]}
                         alt={name}
                         loading="lazy"
                         className="w-full h-full object-cover"

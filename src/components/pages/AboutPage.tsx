@@ -26,7 +26,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       <Breadcrumbs currentRoute="about" onNavigate={onNavigate} />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="border-b border-slate-200 pb-8">
-          <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Profil Korporat', 'Corporate Profile')}</span>
+          <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Maklumat Syarikat', 'Company Information')}</span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#102749] mt-2">{t.about.pageTitle}</h1>
           <p className="text-lg text-slate-700 max-w-3xl mt-3 leading-relaxed">{ms ? COMPANY_DATA.aboutMs : COMPANY_DATA.aboutEn}</p>
         </div>
@@ -75,41 +75,51 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           {ABOUT_PORTRAITS.map((portrait) => {
             const leader = COMPANY_DATA.leadership[portrait.leader];
             const role = ms ? leader.roleMs : leader.roleEn;
-            return <figure key={portrait.leader} className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5">
-              <a href={portrait.src} target="_blank" rel="noopener noreferrer" className="block max-w-xs mx-auto rounded-xl border-4 border-[#F5A623] focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[#102749]" aria-label={`${label('Lihat foto penuh', 'View full portrait')}: ${leader.displayName} (${label('tab baharu', 'new tab')})`}>
-                <img src={portrait.src} alt={`${leader.displayName} — ${role}`} width={301} height={301} loading="lazy" className="w-full h-auto object-contain rounded-lg" />
+            return <figure key={portrait.leader} className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5 text-center">
+              <a href={portrait.src} target="_blank" rel="noopener noreferrer" className="block max-w-xs mx-auto rounded-2xl border-4 border-[#F5A623] focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[#102749] overflow-hidden bg-slate-50" aria-label={`${label('Lihat foto penuh', 'View full portrait')}: ${leader.displayName} (${label('tab baharu', 'new tab')})`}>
+                <img src={portrait.src} alt={`${leader.displayName} — ${role}`} width={301} height={301} loading="lazy" className="w-full aspect-square object-cover rounded-xl" />
               </a>
-              <figcaption className="space-y-2">
+              <figcaption className="space-y-2 text-center">
                 <p className="text-sm font-bold uppercase tracking-wide text-[#C81D25]">{role}</p>
                 <h3 className="text-2xl font-extrabold text-[#102749]">{leader.displayName}</h3>
                 {leader.fullName !== leader.displayName && <p className="text-base text-slate-700">{leader.fullName}</p>}
-                <a href={portrait.src} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-base text-[#102749] underline font-semibold">{label('Lihat foto penuh (tab baharu)', 'View full portrait (new tab)')}</a>
               </figcaption>
             </figure>;
           })}
         </div>
       </section>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#102749] mb-8">{t.about.orgChartTitle}</h2>
-          <div className="max-w-md mx-auto p-6 rounded-2xl bg-[#102749] text-white text-center">
+        <div className="relative overflow-hidden bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+          <div className="absolute inset-x-0 top-0 h-2 bg-[#F5A623]" aria-hidden="true" />
+          <div className="text-center mb-10">
+            <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Struktur Pasukan', 'Team Structure')}</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#102749] mt-2">{t.about.orgChartTitle}</h2>
+            <p className="text-slate-600 mt-2 max-w-2xl mx-auto">{t.about.orgChartSubtitle}</p>
+          </div>
+
+          <div className="max-w-md mx-auto p-6 rounded-2xl bg-[#102749] text-white text-center shadow-lg ring-4 ring-[#F5A623]/30">
             <h3 className="text-xl font-bold">{ms ? ORG_CHART_DIRECTOR.roleMs : ORG_CHART_DIRECTOR.roleEn}</h3>
             <p className="text-lg mt-2">{ORG_CHART_DIRECTOR.name}</p>
           </div>
-          <div aria-hidden="true" className="h-8 w-px bg-slate-400 mx-auto" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-slate-400">
-            {ORG_BRANCHES.map((branch) => <section key={branch.head.name} className="min-w-0">
-              <div aria-hidden="true" className="h-6 w-px bg-slate-400 mx-auto" />
-              <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200">
-                <p className="text-sm text-slate-600 mb-3">{label('Melapor kepada', 'Reports to')}: {ORG_CHART_DIRECTOR.name}</p>
-                <h3 className="text-lg font-bold text-[#102749]">{branch.head.name}</h3>
-                <p className="text-base text-slate-700">{ms ? branch.head.roleMs : branch.head.roleEn}</p>
-                {branch.secondary && <div className="mt-4 pl-4 border-l-2 border-slate-300 space-y-2">
-                  <p className="text-sm text-slate-600">{label('Melapor kepada', 'Reports to')}: {branch.head.name}</p>
-                  <h4 className="text-base font-bold text-[#102749]">{branch.secondary.name}</h4>
-                  <p className="text-base text-slate-700">{ms ? branch.secondary.roleMs : branch.secondary.roleEn}</p>
-                  <ul className="mt-4 space-y-4 pl-4 border-l-2 border-slate-300">
-                    {branch.staff.map(member => <li key={member.name} className="pt-2"><p className="text-sm text-slate-600">{label('Melapor kepada', 'Reports to')}: {branch.secondary!.name}</p><p className="font-bold text-base text-[#102749] mt-1">{member.name}</p><p className="text-base text-slate-700">{ms ? member.roleMs : member.roleEn}</p></li>)}
+          <div aria-hidden="true" className="h-10 w-1 bg-[#F5A623] mx-auto" />
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 md:pt-10">
+            <div aria-hidden="true" className="hidden md:block absolute top-0 left-[16.666%] right-[16.666%] h-1 bg-[#F5A623] rounded-full" />
+            {ORG_BRANCHES.map((branch) => <section key={branch.head.name} className="relative min-w-0">
+              <div aria-hidden="true" className="hidden md:block absolute -top-10 left-1/2 -translate-x-1/2 h-10 w-1 bg-[#F5A623]" />
+              <div className="h-full bg-slate-50 rounded-2xl p-5 border border-slate-200 shadow-xs border-t-4 border-t-[#F5A623]">
+                <div className="text-center pb-4 border-b border-slate-200">
+                  <p className="text-xs uppercase tracking-wide text-slate-500 font-bold">{label('Melapor kepada', 'Reports to')}: {ORG_CHART_DIRECTOR.name}</p>
+                  <h3 className="text-lg font-extrabold text-[#102749] mt-2">{branch.head.name}</h3>
+                  <p className="text-base text-slate-700">{ms ? branch.head.roleMs : branch.head.roleEn}</p>
+                </div>
+                {branch.secondary && <div className="mt-5 space-y-4">
+                  <div className="rounded-xl bg-white p-4 border border-slate-200 text-center">
+                    <p className="text-xs uppercase tracking-wide text-slate-500 font-semibold">{label('Melapor kepada', 'Reports to')}: {branch.head.name}</p>
+                    <h4 className="text-base font-bold text-[#102749] mt-1">{branch.secondary.name}</h4>
+                    <p className="text-base text-slate-700">{ms ? branch.secondary.roleMs : branch.secondary.roleEn}</p>
+                  </div>
+                  <ul className="grid gap-3">
+                    {branch.staff.map(member => <li key={member.name} className="rounded-xl bg-white p-4 border-l-4 border-[#F5A623] border-y border-r border-slate-200"><p className="text-xs uppercase tracking-wide text-slate-500 font-semibold">{label('Melapor kepada', 'Reports to')}: {branch.secondary!.name}</p><p className="font-bold text-base text-[#102749] mt-1">{member.name}</p><p className="text-base text-slate-700">{ms ? member.roleMs : member.roleEn}</p></li>)}
                   </ul>
                 </div>}
               </div>
