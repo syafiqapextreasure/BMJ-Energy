@@ -3,16 +3,6 @@ import { RouteId } from '@/src/types';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPANY_DATA } from '@/src/data/companyData';
 import { RENTAL_EQUIPMENT } from '@/src/data/rentalData';
-import { PHOTO_REGISTRY } from '@/src/data/imageAssets';
-
-// Illustrative hero sources deliberately bypass documentary asset-ID overrides.
-const RENTAL_ILLUSTRATIONS: Record<string, string> = {
-  'asphalt-paver-yellow': PHOTO_REGISTRY.paverYellow,
-  'asphalt-paver-blue': PHOTO_REGISTRY.paverBlue,
-  'road-roller': PHOTO_REGISTRY.roller,
-  excavator: PHOTO_REGISTRY.excavator,
-  'tipper-lorry': PHOTO_REGISTRY.lorry,
-};
 import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import {
@@ -156,17 +146,14 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
                   className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
                 >
                   <div>
-                    {/* Primary Photo */}
+                    {/* Primary original fleet photograph */}
                     <div className="relative aspect-[4/3] bg-slate-900 overflow-hidden">
                       <img
-                        src={RENTAL_ILLUSTRATIONS[equip.id]}
-                        alt={`${name} — ${language === 'ms' ? 'ilustrasi AI' : 'AI illustration'}`}
+                        src={ORIGINAL_PHOTO_OVERRIDES[equip.primaryAssetId]}
+                        alt={name}
                         loading="lazy"
                         className="w-full h-full object-cover"
                       />
-                      <span className="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/70 text-white text-xs">
-                        {language === 'ms' ? 'Ilustrasi jentera • Foto sebenar di bawah' : 'Equipment illustration • Original photos below'}
-                      </span>
                     </div>
 
                     {/* Secondary Thumbnails */}

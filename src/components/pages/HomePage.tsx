@@ -240,10 +240,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </span>
               </div>
 
-              <p className="px-4 pt-3 text-xs text-slate-500">{language === 'ms' ? 'Ilustrasi AI • Foto asal di bawah' : 'AI illustration • Original photos below'}</p>
-              <div className="grid grid-cols-3 gap-2 p-3">
-                {service.assetIds.map(id => <AssetImage key={id} assetId={id} alt={language === 'ms' ? service.titleMs : service.titleEn} onClick={() => onOpenLightbox(id)} className="w-full" />)}
-              </div>
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div className="space-y-2.5">
                   <h3 className="text-lg sm:text-xl font-bold text-[#102749] leading-snug group-hover:text-[#1B4D89] transition-colors">

@@ -164,14 +164,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
                 {/* Right Visuals (Cols 5) with Yellow Edge Angle frame for prominent services */}
                 <div className="lg:col-span-5 space-y-5">
-                  {/* Primary Photo with YellowAngleBox */}
+                  {/* Primary original project/service photograph */}
                   <div className="p-2 sm:p-3">
                     <YellowAngleBox angleSize="md" className="w-full">
-                      <button data-asset-id={service.primaryAssetId} type="button" className="block w-full aspect-[4/3] bg-slate-50 cursor-pointer" aria-label={title} onClick={() => onOpenLightbox(service.primaryAssetId)}>
-                        <img src={getPhotoForAsset(service.primaryAssetId)} alt={`${title} — AI illustration`} loading="lazy" className="w-full h-full object-cover" />
+                      <button data-asset-id={service.assetIds[0] || service.primaryAssetId} type="button" className="block w-full aspect-[4/3] bg-slate-50 cursor-pointer" aria-label={title} onClick={() => onOpenLightbox(service.assetIds[0] || service.primaryAssetId)}>
+                        <img src={SERVICE_THUMBNAILS[service.assetIds[0]] || SERVICE_IMAGE_OVERRIDES[service.assetIds[0]] || getPhotoForAsset(service.assetIds[0] || service.primaryAssetId)} alt={title} loading="lazy" className="w-full h-full object-cover" />
                       </button>
                     </YellowAngleBox>
-                    <p className="mt-3 text-xs text-slate-500">{language === 'ms' ? 'Ilustrasi AI • Bukan rekod projek' : 'AI illustration • Not a project record'}</p>
                   </div>
 
                   {/* Supporting Photos Gallery */}

@@ -46,7 +46,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   if (!currentAssetId) return null;
 
   const isIllustration = Boolean(ILLUSTRATION_ASSETS[currentAssetId]);
-  const asset = ASSETS_BY_ID[currentAssetId] || (isIllustration ? { id: currentAssetId, title: language === 'ms' ? 'Ilustrasi AI — bukan rekod projek' : 'AI illustration — not a project record', category: 'illustration', x: 0, y: 0, w: 0, h: 0, profileRef: '', notes: '' } : null);
+  const asset = ASSETS_BY_ID[currentAssetId] || (isIllustration ? { id: currentAssetId, title: language === 'ms' ? 'Visual BMJ Energy' : 'BMJ Energy visual', category: 'visual', x: 0, y: 0, w: 0, h: 0, profileRef: '', notes: '' } : null);
   if (!asset) return null;
 
   const currentIndex = assetList.indexOf(currentAssetId);

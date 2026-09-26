@@ -29,14 +29,22 @@ export const BmjLogo: React.FC<BmjLogoProps> = ({
       className="h-full w-auto shrink-0 object-contain"
       data-brand-symbol
     />
-    <img
-      src={wordmark}
-      alt=""
-      aria-hidden="true"
-      width={429}
-      height={49}
-      className="h-auto w-[200px] min-w-0 sm:w-[224px] object-contain"
-      data-brand-label
-    />
+    <div className="flex min-w-0 flex-col items-start justify-center leading-none">
+      <img
+        src={wordmark}
+        alt=""
+        aria-hidden="true"
+        width={429}
+        height={49}
+        className="h-auto w-[200px] min-w-0 sm:w-[224px] object-contain"
+        data-brand-label
+      />
+      <span
+        className="mt-1 block pl-1 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[0.26em] text-[#C81D25]"
+        data-brand-subtitle
+      >
+        Service and Trading
+      </span>
+    </div>
   </div>
 );
