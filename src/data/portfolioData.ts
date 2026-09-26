@@ -14,6 +14,24 @@ export interface PhotoOnlyGallery {
 
 export const COMPLETED_PROJECTS: ProjectRecord[] = [
   {
+    id: "P08",
+    code: "P08",
+    titleMs: "Mengorekpulih Parit Pembuang Tersier Peringkat 16 di Blok C, IADA Seberang Perak",
+    titleEn: "Rehabilitation of Tertiary Drainage Channel Stage 16, Block C, IADA Seberang Perak",
+    client: "IADA Seberang Perak",
+    dateStr: "03 Ogos 2026 – 02 September 2026",
+    dateType: "completion_claim",
+    category: "drainage",
+    pdfRef: "Laporan Bergambar IADA Seberang Perak",
+    assetIds: ["P08-001", "P08-002", "P08-003", "P08-004", "P08-005", "P08-006", "P08-007", "P08-008", "P08-009", "P08-010", "P08-011", "P08-012", "P08-013", "P08-014", "P08-015", "P08-016", "P08-017", "P08-018", "P08-019", "P08-020", "P08-021", "P08-022", "P08-023", "P08-024", "P08-025", "P08-026", "P08-027", "P08-028", "P08-029", "P08-030", "P08-031", "P08-032", "P08-033", "P08-034", "P08-035", "P08-036", "P08-037", "P08-038", "P08-039", "P08-040", "P08-041", "P08-042", "P08-043", "P08-044", "P08-045", "P08-046", "P08-047", "P08-048", "P08-049", "P08-050", "P08-051", "P08-052", "P08-053", "P08-054", "P08-055", "P08-056", "P08-057", "P08-058", "P08-059", "P08-060", "P08-061", "P08-062", "P08-063", "P08-064", "P08-065", "P08-066"],
+    scopeMs: "Kerja-kerja mengorekpulih parit pembuang tersier Peringkat 16 di Blok C dan kerja-kerja berkaitan bagi Skim Pengairan Seberang Perak. Lokasi kerja meliputi Parit Pembuang Sekunder LU8, Parit Tersier LU8-2, LU8-4, LU8-5, LU8-7 dan DE2-1-1.",
+    scopeEn: "Rehabilitation of tertiary drainage channels at Stage 16, Block C and related works for the Seberang Perak irrigation scheme. Work areas include Secondary Drain LU8 and tertiary drains LU8-2, LU8-4, LU8-5, LU8-7 and DE2-1-1.",
+    type: "completed",
+    attributionNoteMs: "Sumber: Laporan bergambar siap kerja. Tarikh mula 03 Ogos 2026, tarikh siap 02 September 2026, kos RM46,110.00.",
+    attributionNoteEn: "Source: photographic completion report. Start date 03 August 2026, completion date 02 September 2026, value RM46,110.00.",
+    isPublic: true
+  },
+  {
     id: "P01",
     code: "P01",
     titleMs: "Pembersihan Longkang Zon 2 (Fasa 1), Kawasan Kampung Koh",

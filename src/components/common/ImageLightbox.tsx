@@ -5,6 +5,7 @@ import { getPhotoForAsset, ILLUSTRATION_ASSETS } from '@/src/data/imageAssets';
 import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
 import { EQUIPMENT_IMAGE_OVERRIDES } from '@/src/data/equipmentImageOverrides';
+import { PROJECT_PHOTO_OVERRIDES } from '@/src/data/projectPhotoOverrides';
 import { SERVICES_DATA } from '@/src/data/servicesData';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -47,12 +48,12 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   if (!currentAssetId) return null;
 
   const isIllustration = Boolean(ILLUSTRATION_ASSETS[currentAssetId]);
-  const asset = ASSETS_BY_ID[currentAssetId] || (isIllustration ? { id: currentAssetId, title: language === 'ms' ? 'Visual BMJ Energy' : 'BMJ Energy visual', category: 'visual', x: 0, y: 0, w: 0, h: 0, profileRef: '', notes: '' } : null);
+  const asset = ASSETS_BY_ID[currentAssetId] || ((isIllustration || PROJECT_PHOTO_OVERRIDES[currentAssetId]) ? { id: currentAssetId, title: language === 'ms' ? 'Foto projek BMJ Energy' : 'BMJ Energy project photo', category: 'project', x: 0, y: 0, w: 0, h: 0, profileRef: '', notes: '' } : null);
   if (!asset) return null;
 
   const currentIndex = assetList.indexOf(currentAssetId);
   const hasNav = assetList.length > 1 && onNavigate;
-  const photoSrc = SERVICE_IMAGE_OVERRIDES[asset.id] || EQUIPMENT_IMAGE_OVERRIDES[asset.id] || getPhotoForAsset(asset.id, asset.category);
+  const photoSrc = SERVICE_IMAGE_OVERRIDES[asset.id] || EQUIPMENT_IMAGE_OVERRIDES[asset.id] || PROJECT_PHOTO_OVERRIDES[asset.id] || getPhotoForAsset(asset.id, asset.category);
   const isService = Boolean(SERVICE_IMAGE_OVERRIDES[asset.id]) || isIllustration;
   const service = SERVICES_DATA.find(s => s.primaryAssetId === asset.id || s.assetIds.includes(asset.id));
   const title = !isIllustration && isService && service ? (language === 'ms' ? service.titleMs : service.titleEn) : asset.title;

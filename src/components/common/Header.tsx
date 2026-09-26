@@ -128,9 +128,18 @@ export const Header: React.FC<HeaderProps> = ({
                           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                             {t.nav.servicesDropdown}
                           </span>
-                          <span className="text-xs text-[#C81D25] font-semibold">12 Skop</span>
+                          <span className="text-xs text-[#C81D25] font-semibold">{SERVICES_DATA.length + 1} Skop</span>
                         </div>
                         <div className="max-h-[380px] overflow-y-auto py-1">
+                          <button
+                            onClick={() => handleNavClick('painting')}
+                            className="w-full text-left px-4 py-2.5 text-sm hover:bg-amber-50 transition-colors flex items-center gap-2.5 text-[#102749] hover:text-[#C81D25] cursor-pointer border-b border-slate-100"
+                          >
+                            <span className="text-xs font-mono font-bold text-[#C81D25] shrink-0">NEW</span>
+                            <span className="font-bold truncate">
+                              {language === 'ms' ? 'Painting Services & Coating' : 'Painting Services & Coating'}
+                            </span>
+                          </button>
                           {SERVICES_DATA.map((srv) => (
                             <button
                               key={srv.id}
@@ -220,7 +229,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>{link.label}</span>
                 {link.id === 'services' && (
                   <span className="text-xs px-2 py-0.5 rounded bg-slate-200/80 text-slate-700 font-mono">
-                    12 Skop
+                    {SERVICES_DATA.length + 1} Skop
                   </span>
                 )}
               </button>

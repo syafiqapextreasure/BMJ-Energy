@@ -1,6 +1,6 @@
 export type Language = 'ms' | 'en';
 
-export type RouteId = 'home' | 'about' | 'services' | 'portfolio' | 'rental' | 'contact';
+export type RouteId = 'home' | 'about' | 'services' | 'painting' | 'portfolio' | 'rental' | 'contact';
 
 export interface AssetCoordinate {
   id: string;

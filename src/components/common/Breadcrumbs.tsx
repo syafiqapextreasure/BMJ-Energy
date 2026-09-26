@@ -24,6 +24,8 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
         return t.about.breadcrumbs;
       case 'services':
         return t.services.breadcrumbs;
+      case 'painting':
+        return 'Painting Services';
       case 'portfolio':
         return t.portfolio.breadcrumbs;
       case 'rental':

@@ -254,7 +254,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                                 onClick={() => onOpenLightbox(id, project.assetIds)}
                               >
                                 <AssetImage assetId={id} aspectRatio="aspect-[4/3]" />
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity pointer-events-none">
                                   <Eye className="w-5 h-5 text-white" />
                                 </div>
                                 {!id.startsWith('ILL-') && (
@@ -382,7 +382,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                       onClick={() => onOpenLightbox(id, gallery.assetIds)}
                     >
                       <AssetImage assetId={id} aspectRatio="aspect-[4/3]" />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity pointer-events-none">
                         <Eye className="w-6 h-6 text-white" />
                       </div>
                       <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-white font-mono text-xs">

@@ -16,6 +16,7 @@ import { AssetUploadModal } from '@/src/components/common/AssetUploadModal';
 import { HomePage } from '@/src/components/pages/HomePage';
 import { AboutPage } from '@/src/components/pages/AboutPage';
 import { ServicesPage } from '@/src/components/pages/ServicesPage';
+import { PaintingServicePage } from '@/src/components/pages/PaintingServicePage';
 import { EquipmentPage } from '@/src/components/pages/EquipmentPage';
 import { PortfolioPage } from '@/src/components/pages/PortfolioPage';
 import { ContactPage } from '@/src/components/pages/ContactPage';
@@ -41,7 +42,7 @@ function MainApp() {
   // Parse route from URL hash or pathname
   const getRouteFromUrl = (): RouteId => {
     const hash = window.location.hash.replace('#/', '').replace('#', '');
-    const validRoutes: RouteId[] = ['home', 'about', 'services', 'portfolio', 'rental', 'contact'];
+    const validRoutes: RouteId[] = ['home', 'about', 'services', 'painting', 'portfolio', 'rental', 'contact'];
     if (validRoutes.includes(hash as RouteId)) {
       return hash as RouteId;
     }
@@ -121,6 +122,10 @@ function MainApp() {
             selectedServiceId={selectedServiceId}
             onOpenLightbox={(id) => handleOpenLightbox(id)}
           />
+        )}
+
+        {currentRoute === 'painting' && (
+          <PaintingServicePage onNavigate={navigateTo} />
         )}
 
         {currentRoute === 'rental' && (

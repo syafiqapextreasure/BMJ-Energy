@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="text-base font-semibold text-slate-200 hover:text-white transition-colors flex items-center gap-2 py-1 cursor-pointer"
                 >
                   <span className="text-[#C81D25] font-bold text-lg">›</span>
-                  <span>{t.nav.services} ({language === 'ms' ? '12 Skop' : '12 Service Areas'})</span>
+                  <span>{t.nav.services}</span>
                 </button>
               </li>
               <li>
