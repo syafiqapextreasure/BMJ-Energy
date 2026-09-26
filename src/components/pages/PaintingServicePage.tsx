@@ -205,8 +205,8 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
 
         <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-semibold text-[#102749]">
           {label(
-            `${PAINTING_CATALOG_PROJECTS.length} projek katalog dipaparkan dengan pasangan halaman asal masing-masing.`,
-            `${PAINTING_CATALOG_PROJECTS.length} catalog projects are shown using each project's original page pair.`
+            `${PAINTING_CATALOG_PROJECTS.length} projek katalog dipaparkan menggunakan gambar individu yang diekstrak daripada katalog asal.`,
+            `${PAINTING_CATALOG_PROJECTS.length} catalog projects are shown using individual photos extracted from the original catalog.`
           )}
         </div>
       </section>
