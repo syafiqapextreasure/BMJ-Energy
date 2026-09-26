@@ -220,34 +220,27 @@ export const HomePage: React.FC<HomePageProps> = ({
           </button>
         </div>
 
-        {/* Grid: 6 marquee services; only the lead card carries the requested single visual */}
+        {/* Grid: 6 marquee services highlighted with the supplied/generated service images */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES_DATA.slice(0, 6).map((service, index) => (
+          {SERVICES_DATA.slice(0, 6).map((service) => (
             <div
               key={service.id}
               className="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              {index === 0 ? (
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                  <AssetImage
-                    assetId={service.primaryAssetId}
-                    alt={language === 'ms' ? service.titleMs : service.titleEn}
-                    aspectRatio="aspect-[16/10]"
-                    onClick={() => onOpenLightbox(service.primaryAssetId)}
-                    className="cursor-pointer"
-                  />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#102749]/90 text-white font-mono text-sm font-bold backdrop-blur-xs">
-                    {service.num}
-                  </span>
-                </div>
-              ) : null}
+              <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                <AssetImage
+                  assetId={service.primaryAssetId}
+                  alt={language === 'ms' ? service.titleMs : service.titleEn}
+                  aspectRatio="aspect-[16/10]"
+                  onClick={() => onOpenLightbox(service.primaryAssetId)}
+                  className="cursor-pointer"
+                />
+                <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#102749]/90 text-white font-mono text-sm font-bold backdrop-blur-xs">
+                  {service.num}
+                </span>
+              </div>
 
               <div className="p-6 flex-1 flex flex-col justify-between">
-                {index !== 0 ? (
-                  <span className="mb-4 inline-flex w-fit px-2.5 py-1 rounded bg-[#102749] text-white font-mono text-sm font-bold">
-                    {service.num}
-                  </span>
-                ) : null}
                 <div className="space-y-2.5">
                   <h3 className="text-lg sm:text-xl font-bold text-[#102749] leading-snug group-hover:text-[#1B4D89] transition-colors">
                     {language === 'ms' ? service.titleMs : service.titleEn}
