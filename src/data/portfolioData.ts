@@ -25,6 +25,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil p. 28",
     scopeMs: "Kerja-kerja pembersihan longkang Zon 2 (Fasa 1) melibatkan pembuangan kelodak, sampah sarap dan melancarkan aliran saliran awam di kawasan Kampung Koh.",
     scopeEn: "Drainage clearing works in Zone 2 (Phase 1) comprising silt removal, debris clearing, and public watercourse unblocking in Kampung Koh area.",
+    assetIds: ["ILL-excavator"],
     type: "completed",
     isPublic: true
   },
@@ -40,6 +41,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 29–30",
     scopeMs: "Kerja penggantian dan pembaikan siling yang terkopek dan usang di fasiliti Martial Hat, Kompleks Sukan Pangkalan TLDM Lumut.",
     scopeEn: "Comprehensive replacement and repair of deteriorated/peeling ceiling panels at Martial Hat facility, Lumut Naval Base Sports Complex.",
+    assetIds: ["ILL-epoxy"],
     type: "completed",
     isPublic: true
   },
@@ -55,6 +57,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 31–33",
     scopeMs: "Pembaikan tiang dan pagar sekolah SK Pangkalan II; penggantian siling dan pengecatan tandas lelaki serta pembaharuan paip tangki utama Masjid An-Nur, Pangkalan TLDM Lumut.",
     scopeEn: "Repair of perimeter fencing/posts at SK Pangkalan II; ceiling renewals and male washroom repainting plus main water tank piping at An-Nur Mosque, Lumut Naval Base.",
+    assetIds: ["ILL-concreteYard"],
     type: "completed",
     isPublic: true
   },
@@ -70,6 +73,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 34–35",
     scopeMs: "Pembekalan minyak pelincir marin gred Outboard Motor Gear GL-4 mengikut spesifikasi perolehan pertahanan.",
     scopeEn: "Procurement and delivery of Outboard Motor Gear GL-4 marine-grade lubricant per naval supply specifications.",
+    assetIds: ["ILL-plantationRoad"],
     type: "completed",
     isPublic: true
   },
@@ -85,6 +89,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 36–38",
     scopeMs: "Fabrikasi, pembekalan dan pemasangan papan paparan berbingkai termasuk Sudut Anugerah KD Malaya, carta organisasi dan papan dasar keselamatan & kesihatan pekerjaan.",
     scopeEn: "Fabrication, delivery, and mounting of framed display units including KD Malaya Award showcase, organization charts, and Occupational Safety & Health (OSH) noticeboards.",
+    assetIds: ["ILL-concreteYard"],
     type: "completed",
     isPublic: true
   },
@@ -100,6 +105,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 39–44",
     scopeMs: "Kerja penggantian dan penyelenggaraan jubin lantai tahan lasak bagi kawasan bilik sejuk beku, ruang sejuk dingin dan lobi kapal tentera laut KD Mahawangsa.",
     scopeEn: "Heavy-duty commercial floor tiling removal, substrate leveling, and non-slip hygienic tile installation across cold storage, freezer compartments, and lobby on naval vessel KD Mahawangsa.",
+    assetIds: ["ILL-epoxy"],
     type: "completed",
     isPublic: true
   },
@@ -115,6 +121,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 48 (Surat Setuju Terima: 6 Mac 2023)",
     scopeMs: "Kerja-kerja penyenggaraan rutin jalan persekutuan bagi pakej daerah Manjung (MJG-1) merangkumi penyelenggaraan turapan premix, perparitan dan keselamatan jalan.",
     scopeEn: "Routine federal highway maintenance for Manjung district package (MJG-1), including asphalt premix patching, drainage maintenance, and road reserve upkeep.",
+    assetIds: ["ILL-heroBg"],
     type: "completed",
     attributionNoteMs: "Tarikh yang dinyatakan adalah tarikh tempoh kontrak (20 Mac 2023 – 28 Februari 2024) berpandukan dokumen Surat Setuju Terima bertarikh 6 Mac 2023.",
     attributionNoteEn: "Stated dates reflect contractual term (20 March 2023 – 28 February 2024) based on Letter of Acceptance dated 6 March 2023.",

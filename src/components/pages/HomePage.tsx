@@ -33,7 +33,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="space-y-20 sm:space-y-28 pb-16">
-      {/* 1. HERO SECTION: Full-width Authentic Equipment Hero with Transparent Image Background */}
+      {/* 1. HERO SECTION: Full-width branded Google AI Studio hero with transparent image background */}
       <section className="relative bg-[#0d1f38] text-white overflow-hidden">
         {/* Full-width transparent image background relevant to this project */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -106,23 +106,23 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Right Featured Authentic Equipment Visual with Image 1 Yellow Edge Angle (Cols 5) */}
+            {/* Right Featured Google AI Studio branded equipment visual with Image 1 Yellow Edge Angle (Cols 5) */}
             <div className="lg:col-span-5 space-y-5">
               <div className="p-2 sm:p-4">
                 <YellowAngleBox angleSize="lg" className="w-full">
                   <AssetImage
-                    assetId="A014"
-                    alt="Asphalt Paver BMJ Energy"
+                    assetId="ILL-paverYellow"
+                    alt="BMJ Energy asphalt paving visual"
                     aspectRatio="aspect-[4/3]"
-                    onClick={() => onOpenLightbox('A014')}
+                    onClick={() => onOpenLightbox('ILL-paverYellow')}
                     className="cursor-pointer"
                   />
                 </YellowAngleBox>
               </div>
 
               <div className="p-3.5 bg-white/10 rounded-xl border border-white/20 backdrop-blur-md text-sm sm:text-base text-slate-200 flex items-center justify-between">
-                <span className="font-bold text-white">Asphalt Paver (Kuning) BMJ</span>
-                <span className="font-mono text-xs sm:text-sm text-[#F5A623] font-bold">Ref: Profile p.9 (A014)</span>
+                <span className="font-bold text-white">BMJ Energy Asphalt Paving</span>
+                <span className="font-mono text-xs sm:text-sm text-[#F5A623] font-bold">Branded Visual</span>
               </div>
 
               {/* Micro-thumbnails */}
@@ -181,14 +181,14 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Featured Excavator / Heavy Machinery framed with Yellow Edge Angle matching Image 1 */}
+            {/* Featured Google AI Studio excavator / heavy machinery visual framed with Yellow Edge Angle */}
             <div className="lg:col-span-5 flex justify-center py-4 px-2">
               <YellowAngleBox angleSize="lg" className="w-full max-w-md">
                 <AssetImage
-                  assetId="A017"
-                  alt="Excavator & Civil Works BMJ Energy"
+                  assetId="ILL-excavator"
+                  alt="BMJ Energy excavator and civil works visual"
                   aspectRatio="aspect-[4/3]"
-                  onClick={() => onOpenLightbox('A017')}
+                  onClick={() => onOpenLightbox('ILL-excavator')}
                   className="cursor-pointer"
                 />
               </YellowAngleBox>

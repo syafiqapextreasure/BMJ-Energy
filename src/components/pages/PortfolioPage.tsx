@@ -265,9 +265,11 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                                   <Eye className="w-5 h-5 text-white" />
                                 </div>
-                                <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/80 text-white font-mono text-[10px]">
-                                  {id}
-                                </span>
+                                {!id.startsWith('ILL-') && (
+                                  <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/80 text-white font-mono text-[10px]">
+                                    {id}
+                                  </span>
+                                )}
                               </div>
                             ))}
                           </div>
