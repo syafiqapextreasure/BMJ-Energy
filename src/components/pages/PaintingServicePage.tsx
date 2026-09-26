@@ -89,12 +89,12 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
         <div className="lg:col-span-5 space-y-4">
           <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Skop Perkhidmatan', 'Service Scope')}</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102749]">
-            {label('Cantik, kemas dan tahan lama — tanpa perlu visual AI baharu.', 'Beautiful, clean and durable — no new AI visual is required.')}
+            {label('Kemasan cat profesional untuk rumah, bangunan dan fasiliti.', 'Professional paint finishes for homes, buildings and facilities.')}
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
             {label(
-              'Lampiran katalog yang diberi sudah mempunyai foto kerja sebenar yang mencukupi. Laman ini direka semula dengan layout moden, warna jenama BMJ dan galeri projek supaya nampak lebih premium daripada PDF asal.',
-              'The supplied catalog already contains enough real work photos. This page repackages them with a modern layout, BMJ brand colours and project galleries so it looks more premium than the original PDF.'
+              'BMJ Energy menyediakan kerja cat dalaman dan luaran, waterproofing PU, epoxy floor coating serta kemasan touch-up dengan persediaan permukaan yang teliti untuk hasil yang kemas, tahan lama dan sesuai dengan keadaan tapak.',
+              'BMJ Energy provides interior and exterior painting, PU waterproofing, epoxy floor coating and touch-up finishing with careful surface preparation for clean, durable results suited to each site condition.'
             )}
           </p>
         </div>
