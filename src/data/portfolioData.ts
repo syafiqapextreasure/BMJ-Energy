@@ -1,17 +1,5 @@
 import { ProjectRecord } from "@/src/types";
 
-export interface PhotoOnlyGallery {
-  id: string;
-  titleMs: string;
-  titleEn: string;
-  category: string;
-  assetIds: string[];
-  descMs: string;
-  descEn: string;
-  sourceNoteMs: string;
-  sourceNoteEn: string;
-}
-
 export const COMPLETED_PROJECTS: ProjectRecord[] = [
   {
     id: "P01",
@@ -25,7 +13,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil p. 28",
     scopeMs: "Kerja-kerja pembersihan longkang Zon 2 (Fasa 1) melibatkan pembuangan kelodak, sampah sarap dan melancarkan aliran saliran awam di kawasan Kampung Koh.",
     scopeEn: "Drainage clearing works in Zone 2 (Phase 1) comprising silt removal, debris clearing, and public watercourse unblocking in Kampung Koh area.",
-    assetIds: ["ILL-excavator"],
+    assetIds: ["A058", "A059", "A060", "A061"],
     type: "completed",
     isPublic: true
   },
@@ -41,7 +29,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 29–30",
     scopeMs: "Kerja penggantian dan pembaikan siling yang terkopek dan usang di fasiliti Martial Hat, Kompleks Sukan Pangkalan TLDM Lumut.",
     scopeEn: "Comprehensive replacement and repair of deteriorated/peeling ceiling panels at Martial Hat facility, Lumut Naval Base Sports Complex.",
-    assetIds: ["ILL-epoxy"],
+    assetIds: ["A026", "A027", "A028", "A029", "A030", "A031", "A032", "A033"],
     type: "completed",
     isPublic: true
   },
@@ -57,7 +45,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 31–33",
     scopeMs: "Pembaikan tiang dan pagar sekolah SK Pangkalan II; penggantian siling dan pengecatan tandas lelaki serta pembaharuan paip tangki utama Masjid An-Nur, Pangkalan TLDM Lumut.",
     scopeEn: "Repair of perimeter fencing/posts at SK Pangkalan II; ceiling renewals and male washroom repainting plus main water tank piping at An-Nur Mosque, Lumut Naval Base.",
-    assetIds: ["ILL-concreteYard"],
+    assetIds: ["A050", "A051", "A052", "A053", "A054", "A055", "A056", "A057"],
     type: "completed",
     isPublic: true
   },
@@ -73,7 +61,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 34–35",
     scopeMs: "Pembekalan minyak pelincir marin gred Outboard Motor Gear GL-4 mengikut spesifikasi perolehan pertahanan.",
     scopeEn: "Procurement and delivery of Outboard Motor Gear GL-4 marine-grade lubricant per naval supply specifications.",
-    assetIds: ["ILL-plantationRoad"],
+    assetIds: ["A018", "A019", "A020", "A021"],
     type: "completed",
     isPublic: true
   },
@@ -89,7 +77,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 36–38",
     scopeMs: "Fabrikasi, pembekalan dan pemasangan papan paparan berbingkai termasuk Sudut Anugerah KD Malaya, carta organisasi dan papan dasar keselamatan & kesihatan pekerjaan.",
     scopeEn: "Fabrication, delivery, and mounting of framed display units including KD Malaya Award showcase, organization charts, and Occupational Safety & Health (OSH) noticeboards.",
-    assetIds: ["ILL-concreteYard"],
+    assetIds: ["A018", "A019", "A020", "A021", "A022", "A023", "A024", "A025"],
     type: "completed",
     isPublic: true
   },
@@ -105,7 +93,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 39–44",
     scopeMs: "Kerja penggantian dan penyelenggaraan jubin lantai tahan lasak bagi kawasan bilik sejuk beku, ruang sejuk dingin dan lobi kapal tentera laut KD Mahawangsa.",
     scopeEn: "Heavy-duty commercial floor tiling removal, substrate leveling, and non-slip hygienic tile installation across cold storage, freezer compartments, and lobby on naval vessel KD Mahawangsa.",
-    assetIds: ["ILL-epoxy"],
+    assetIds: ["A026", "A027", "A028", "A029", "A030", "A031", "A032", "A033", "A034", "A035", "A036", "A037", "A038", "A039", "A040", "A041"],
     type: "completed",
     isPublic: true
   },
@@ -121,7 +109,7 @@ export const COMPLETED_PROJECTS: ProjectRecord[] = [
     pdfRef: "Profil ms. 48 (Surat Setuju Terima: 6 Mac 2023)",
     scopeMs: "Kerja-kerja penyenggaraan rutin jalan persekutuan bagi pakej daerah Manjung (MJG-1) merangkumi penyelenggaraan turapan premix, perparitan dan keselamatan jalan.",
     scopeEn: "Routine federal highway maintenance for Manjung district package (MJG-1), including asphalt premix patching, drainage maintenance, and road reserve upkeep.",
-    assetIds: ["ILL-heroBg"],
+    assetIds: ["A042", "A043", "A044", "A045", "A046", "A047", "A048", "A049"],
     type: "completed",
     attributionNoteMs: "Tarikh yang dinyatakan adalah tarikh tempoh kontrak (20 Mac 2023 – 28 Februari 2024) berpandukan dokumen Surat Setuju Terima bertarikh 6 Mac 2023.",
     attributionNoteEn: "Stated dates reflect contractual term (20 March 2023 – 28 February 2024) based on Letter of Acceptance dated 6 March 2023.",
@@ -180,97 +168,6 @@ export const SUPPORTING_RECORDS: ProjectRecord[] = [
     attributionNoteMs: "Kategori Rekod: Surat pelantikan kontraktor berkelayakan, bukan laporan siap projek fizikal tertentu.",
     attributionNoteEn: "Record Classification: Approved contractor registration letter, not a specific completed physical project.",
     isPublic: true
-  }
-];
-
-export const PHOTO_ONLY_ARCHIVES: PhotoOnlyGallery[] = [
-  {
-    id: "display-boards",
-    titleMs: "Sudut Anugerah & Papan Paparan KD Malaya",
-    titleEn: "KD Malaya Award Corner & Display Boards",
-    category: "Pembekalan",
-    assetIds: ["A018", "A019", "A020", "A021", "A022", "A023", "A024", "A025"],
-    descMs: "Foto papan paparan berbingkai dan kerja pemasangan di lokasi. Rekod visual ini diasingkan daripada kontrak bertarikh.",
-    descEn: "Original photographs of framed display boards and on-site installation, presented separately from dated contract records.",
-    sourceNoteMs: "Rekod visual papan paparan.",
-    sourceNoteEn: "Display-board visual record."
-  },
-  {
-    id: "mosaic-floor-maintenance",
-    titleMs: "Penyelenggaraan Lantai Mozek",
-    titleEn: "Mosaic Floor Maintenance",
-    category: "Penyelenggaraan",
-    assetIds: ["A026", "A027", "A028", "A029", "A030", "A031", "A032", "A033"],
-    descMs: "Persediaan permukaan dan kerja lantai dalam ruang dalaman, termasuk keadaan sebelum dan selepas kerja.",
-    descEn: "Interior floor preparation and maintenance, showing work in progress and finished surfaces.",
-    sourceNoteMs: "Rekod visual penyelenggaraan lantai.",
-    sourceNoteEn: "Floor-maintenance visual record."
-  },
-  {
-    id: "industrial-floor-repair",
-    titleMs: "Senggaraan Mozek KD Mahawangsa, TLDM Lumut",
-    titleEn: "KD Mahawangsa Mosaic Maintenance, TLDM Lumut",
-    category: "Penyelenggaraan",
-    assetIds: ["A034", "A035", "A036", "A037", "A038", "A039", "A040", "A041"],
-    descMs: "Kerja pembaikan lantai, penyediaan bahan dan kemasan permukaan dalam ruang industri.",
-    descEn: "Floor repair, material preparation and completed surfaces in an industrial interior.",
-    sourceNoteMs: "Rekod visual pembaikan lantai.",
-    sourceNoteEn: "Floor-repair visual record."
-  },
-  {
-    id: "mpm-road-patching",
-    titleMs: "Kerja Tampalan Jalan Asfalt (MPM)",
-    titleEn: "Road Asphalt Patching Works (MPM Area)",
-    category: "Jalan Raya",
-    assetIds: ["A042", "A043", "A044", "A045"],
-    descMs: "Dokumentasi fotografi kerja pemotongan tepi jalan, hamparan asfalt premix panas, dan pemadatan menggunakan tandem roller di kawasan Majlis Perbandaran Manjung.",
-    descEn: "Photographic log showing asphalt edge sawing, hot premix laying, and compaction using tandem roller across MPM jurisdiction.",
-    sourceNoteMs: "Foto lampiran profil syarikat ms. 56 (A042–A045). Disimpan sebagai rekod visual tersendiri.",
-    sourceNoteEn: "Company profile appendix photos p. 56 (A042–A045). Preserved as standalone visual documentation."
-  },
-  {
-    id: "mpm-road-humps",
-    titleMs: "Pengecatan Bonggol Jalan Berpantul (Road Hump Markings)",
-    titleEn: "Reflective Road Hump Markings",
-    category: "Jalan Raya",
-    assetIds: ["A046", "A047", "A048", "A049"],
-    descMs: "Aplikasi cat termoplastik dan pemantul cahaya warna kuning & putih bercorak chevron pada bonggol jalan bagi meningkatkan tahap keselamatan lalu lintas.",
-    descEn: "Application of high-visibility yellow and white reflective chevron marking paint on road calming humps for traffic safety.",
-    sourceNoteMs: "Foto lampiran profil syarikat ms. 57 (A046–A049).",
-    sourceNoteEn: "Company profile appendix photos p. 57 (A046–A049)."
-  },
-  {
-    id: "mpm-door-repairs",
-    titleMs: "Pembaikan Pintu & Perkakasan Fasiliti",
-    titleEn: "Facility Door & Hardware Maintenance",
-    category: "Penyelenggaraan",
-    assetIds: ["A050", "A051", "A052", "A053"],
-    descMs: "Kerja menukar engsel, meratakan bingkai pintu, memasang tombol kunci keselamatan, serta kemasan cat perlindungan pintu premis.",
-    descEn: "Hinges realignment, frame leveling, heavy-duty lockset installations, and protective paint finishing for institutional facility doors.",
-    sourceNoteMs: "Foto lampiran profil syarikat ms. 58 (A050–A053).",
-    sourceNoteEn: "Company profile appendix photos p. 58 (A050–A053)."
-  },
-  {
-    id: "mpm-wall-socket",
-    titleMs: "Pembaikan Dinding & Pendawaian Soket",
-    titleEn: "Wall Plastering & Socket Electrical Repairs",
-    category: "Penyelenggaraan",
-    assetIds: ["A054", "A055", "A056", "A057"],
-    descMs: "Kerja menampal rekahan dinding batu, pemasangan konduit pendawaian elektrik tersembunyi, penggantian soket suis, dan mengecat semula permukaan.",
-    descEn: "Masonry crack patching, concealed electrical conduit chasing, socket replacement, and surface refinishing.",
-    sourceNoteMs: "Foto lampiran profil syarikat ms. 59 (A054–A057).",
-    sourceNoteEn: "Company profile appendix photos p. 59 (A054–A057)."
-  },
-  {
-    id: "mpm-traffic-mirrors",
-    titleMs: "Pemasangan Cermin Keselamatan Simpang (Traffic Convex Mirrors)",
-    titleEn: "Convex Safety Traffic Mirror Installations",
-    category: "Keselamatan Jalan",
-    assetIds: ["A058", "A059", "A060", "A061"],
-    descMs: "Pemasangan tiang besi tahan karat, asas tapak konkrit, dan pelekap cermin cembung cembung akrilik di persimpangan jalan bagi menghapuskan titik buta kenderaan.",
-    descEn: "Installation of galvanized steel posts, concrete footing, and heavy-duty outdoor convex mirrors at blind corners for traffic visibility.",
-    sourceNoteMs: "Foto lampiran profil syarikat ms. 60 (A058–A061).",
-    sourceNoteEn: "Company profile appendix photos p. 60 (A058–A061)."
   }
 ];
 

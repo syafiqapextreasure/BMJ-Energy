@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RouteId, ProjectRecord } from '@/src/types';
 import { useLanguage } from '@/src/context/LanguageContext';
-import { COMPLETED_PROJECTS, SUPPORTING_RECORDS, PHOTO_ONLY_ARCHIVES } from '@/src/data/portfolioData';
+import { COMPLETED_PROJECTS, SUPPORTING_RECORDS } from '@/src/data/portfolioData';
 import { AssetImage } from '@/src/components/common/AssetImage';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import {
@@ -26,7 +26,7 @@ interface PortfolioPageProps {
 export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpenLightbox }) => {
   const { language, t } = useLanguage();
 
-  const [activeTab, setActiveTab] = useState<'completed' | 'supporting' | 'photos'>('completed');
+  const [activeTab, setActiveTab] = useState<'completed' | 'supporting'>('completed');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -63,17 +63,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
       rec.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
       rec.scopeMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
       rec.scopeEn.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  });
-
-  // Filter photo-only archives
-  const filteredPhotos = PHOTO_ONLY_ARCHIVES.filter((g) => {
-    return (
-      searchTerm === '' ||
-      g.titleMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      g.titleEn.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      g.descMs.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      g.descEn.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 
@@ -132,16 +121,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
               {t.portfolio.tabSupporting}
             </button>
 
-            <button
-              onClick={() => setActiveTab('photos')}
-              className={`min-h-[48px] px-5 py-3 text-sm sm:text-base font-bold whitespace-nowrap border-b-2 transition-colors ${
-                activeTab === 'photos'
-                  ? 'border-[#102749] text-[#102749]'
-                  : 'border-transparent text-slate-500 hover:text-slate-800'
-              }`}
-            >
-              {t.portfolio.tabPhotos}
-            </button>
           </div>
 
           {/* Search Bar & Category Filter */}
@@ -255,7 +234,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                             {t.portfolio.viewPhotos} ({project.assetIds!.length}):
                           </span>
                           <div className="grid grid-cols-2 gap-2">
-                            {project.assetIds!.slice(0, 4).map((id) => (
+                            {project.assetIds!.map((id) => (
                               <div
                                 key={id}
                                 className="relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 cursor-pointer group bg-slate-900"
@@ -273,14 +252,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                               </div>
                             ))}
                           </div>
-                          {project.assetIds!.length > 4 && (
-                            <button
-                              onClick={() => onOpenLightbox(project.assetIds![0], project.assetIds)}
-                              className="text-xs font-bold text-[#102749] hover:underline"
-                            >
-                              + {project.assetIds!.length - 4} {language === 'ms' ? 'foto lagi dalam pemapar imej' : 'more photos in viewer'}
-                            </button>
-                          )}
                         </div>
                       ) : (
                         <div className="lg:col-span-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500">
@@ -359,64 +330,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
         </section>
       )}
 
-      {/* TAB 3: PHOTO-ONLY VISUAL ARCHIVES (A042–A061) */}
-      {activeTab === 'photos' && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="p-4 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-sm">
-            <p>
-              {language === 'ms'
-                ? 'Rekod foto kerja tapak ini dipaparkan berasingan daripada kontrak bertarikh. Tarikh dan nilai kontrak tidak dinyatakan.'
-                : 'These field photo records are presented separately from dated contracts. Contract dates and values are not stated.'}
-            </p>
-          </div>
-
-          <div className="space-y-12">
-            {filteredPhotos.map((gallery) => (
-              <div
-                key={gallery.id}
-                className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6"
-              >
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#C81D25]">
-                    {language === 'ms' ? gallery.category : ({ 'Pembekalan': 'Supply', 'Jalan Raya': 'Roads', 'Penyelenggaraan': 'Maintenance', 'Keselamatan Jalan': 'Road Safety' }[gallery.category] || gallery.category)}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#102749] mt-1">
-                    {language === 'ms' ? gallery.titleMs : gallery.titleEn}
-                  </h3>
-                  <p className="text-sm text-slate-600 mt-1">
-                    {language === 'ms' ? gallery.descMs : gallery.descEn}
-                  </p>
-                </div>
-
-                {/* 4 Photo Tiles Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {gallery.assetIds.map((id) => (
-                    <div
-                      key={id}
-                      className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 shadow-xs cursor-pointer group bg-slate-900"
-                      role="button"
-                      tabIndex={0}
-                      aria-label={id}
-                      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpenLightbox(id, gallery.assetIds); } }}
-                      onClick={() => onOpenLightbox(id, gallery.assetIds)}
-                    >
-                      <AssetImage assetId={id} aspectRatio="aspect-[4/3]" />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                        <Eye className="w-6 h-6 text-white" />
-                      </div>
-                      <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-white font-mono text-xs">
-                        {id}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
     </div>
   );
 };
