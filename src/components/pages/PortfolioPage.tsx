@@ -296,17 +296,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
       {/* TAB 2: SUPPORTING APPOINTMENT RECORDS (R01–R03) */}
       {activeTab === 'supporting' && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-sm">
-            <p className="font-bold mb-1">
-              {language === 'ms' ? 'Kategori Rekod Sokongan:' : 'Supporting Records Category:'}
-            </p>
-            <p>
-              {language === 'ms'
-                ? 'Rekod ini diasingkan daripada projek siap. Dokumen atas nama BMJ MAJU 77 ENTERPRISE bukan kontrak BMJ Energy dan tidak membuktikan hubungan antara kedua-dua entiti. Surat pelantikan pula bukan bukti penyiapan projek fizikal.'
-                : 'These records are separate from completed projects. The document addressed to BMJ MAJU 77 ENTERPRISE is not a BMJ Energy contract and does not establish a relationship between the entities. An appointment letter is not evidence of a completed physical project.'}
-            </p>
-          </div>
-
           <div className="space-y-6">
             {filteredSupporting.map((record) => (
               <div
@@ -352,14 +341,6 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
       {/* TAB 3: PHOTO-ONLY VISUAL ARCHIVES (A042–A061) */}
       {activeTab === 'photos' && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="p-4 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-sm">
-            <p>
-              {language === 'ms'
-                ? 'Rekod foto kerja tapak ini dipaparkan berasingan daripada kontrak bertarikh. Tarikh dan nilai kontrak tidak dinyatakan.'
-                : 'These field photo records are presented separately from dated contracts. Contract dates and values are not stated.'}
-            </p>
-          </div>
-
           <div className="space-y-12">
             {filteredPhotos.map((gallery) => (
               <div
