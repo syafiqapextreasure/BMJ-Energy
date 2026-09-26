@@ -139,6 +139,7 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
               const desc = language === 'ms' ? equip.descriptionMs : equip.descriptionEn;
               const highlights = language === 'ms' ? equip.highlightsMs : equip.highlightsEn;
               const terms = language === 'ms' ? equip.termsMs : equip.termsEn;
+              const secondaryAssetIds = equip.assetIds.filter((id, idx, arr) => id !== equip.primaryAssetId && arr.indexOf(id) === idx);
 
               return (
                 <div
@@ -157,9 +158,9 @@ export const EquipmentPage: React.FC<EquipmentPageProps> = ({ onNavigate, onOpen
                     </div>
 
                     {/* Secondary Thumbnails */}
-                    {equip.assetIds.length > 1 && (
+                    {secondaryAssetIds.length > 0 && (
                       <div className="p-3 bg-slate-50 border-b border-slate-200 flex gap-2 overflow-x-auto">
-                        {equip.assetIds.map((id) => (
+                        {secondaryAssetIds.map((id) => (
                           <button
                             type="button"
                             key={id}

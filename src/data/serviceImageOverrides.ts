@@ -1,6 +1,18 @@
 // Original embedded brochure photographs. Internal provenance: bmj-evidence/corrections/services-assets.json.
 // Resolve these BEFORE any sprite-sheet or generic fallback, including in enlarged views.
 export const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
+  SVC01: new URL('../assets/services/enhanced/service-01-road-construction.png', import.meta.url).href,
+  SVC02: new URL('../assets/services/enhanced/service-02-plantation-roads.png', import.meta.url).href,
+  SVC03: new URL('../assets/services/enhanced/service-03-gabion.png', import.meta.url).href,
+  SVC04: new URL('../assets/services/enhanced/service-04-drain-excavation.png', import.meta.url).href,
+  SVC05: new URL('../assets/services/enhanced/service-05-culvert.png', import.meta.url).href,
+  SVC06: new URL('../assets/services/enhanced/service-06-coring.png', import.meta.url).href,
+  SVC07: new URL('../assets/services/enhanced/service-07-concrete-paving.png', import.meta.url).href,
+  SVC08: new URL('../assets/services/enhanced/service-08-epoxy-coating.png', import.meta.url).href,
+  SVC09: new URL('../assets/services/enhanced/service-09-general-construction.png', import.meta.url).href,
+  SVC10: new URL('../assets/services/enhanced/service-10-mechanical-electrical.png', import.meta.url).href,
+  SVC11: new URL('../assets/services/enhanced/service-11-building-maintenance.png', import.meta.url).href,
+  SVC12: new URL('../assets/services/enhanced/service-12-fit-out.png', import.meta.url).href,
   A109: new URL('../assets/services/A109-profile-service-icon.png', import.meta.url).href,
   A110: new URL('../assets/services/A110-profile-service-icon.png', import.meta.url).href,
   A111: new URL('../assets/services/A111-profile-service-icon.png', import.meta.url).href,

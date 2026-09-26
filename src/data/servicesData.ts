@@ -8,7 +8,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Premix resurfacing, pavement patching, road shoulders and roadside drainage.",
     scopeMs: ["Penurapan semula jalan dengan premix", "Pembaikan jalan berlubang dan tampalan turapan", "Pembinaan dan penyelenggaraan bahu jalan", "Pembersihan dan pembinaan longkang tepi jalan"],
     scopeEn: ["Premix road resurfacing", "Pothole repairs and pavement patching", "Road shoulder construction and maintenance", "Roadside drain cleaning and construction"],
-    assetIds: ["A068", "A069", "A070"], primaryAssetId: "ILL-heroBg", iconName: "Truck"
+    assetIds: ["SVC01"], primaryAssetId: "SVC01", iconName: "Truck"
   },
   {
     id: "plantation-roads", num: "02",
@@ -17,7 +17,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Agricultural and plantation road construction and rehabilitation, earthworks and erosion control.",
     scopeMs: ["Pembersihan tapak dan kerja tanah", "Penyediaan dan pemadatan subgred", "Hamparan crusher run atau laterit", "Penurapan mengikut keperluan dan spesifikasi projek", "Pembinaan saliran dan pemasangan pembetung", "Kawalan hakisan dan penyelenggaraan berkala"],
     scopeEn: ["Site clearing and earthworks", "Subgrade preparation and compaction", "Crusher-run or laterite surfacing", "Paving to project requirements and specifications", "Drainage construction and culvert installation", "Erosion control and periodic maintenance"],
-    assetIds: ["A072", "A073", "A074"], primaryAssetId: "ILL-plantationRoad", iconName: "Trees"
+    assetIds: ["SVC02"], primaryAssetId: "SVC02", iconName: "Trees"
   },
   {
     id: "gabion-structures", num: "03",
@@ -26,7 +26,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Gabion structures for riverbank erosion control, slope stabilization and retaining walls.",
     scopeMs: ["Penyediaan tapak struktur gabion", "Pemasangan sangkar gabion dan pengisian batu", "Perlindungan tebing sungai dan cerun", "Pembinaan dinding penahan mengikut reka bentuk dan spesifikasi projek"],
     scopeEn: ["Gabion site preparation", "Gabion basket installation and stone filling", "Riverbank and slope protection", "Retaining wall construction to project design and specifications"],
-    assetIds: ["A075", "A076", "A077"], primaryAssetId: "ILL-gabion", iconName: "Shield"
+    assetIds: ["SVC03"], primaryAssetId: "SVC03", iconName: "Shield"
   },
   {
     id: "drain-excavation", num: "04",
@@ -35,7 +35,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Drain excavation, desilting, channel reprofiling and removal of excavated material.",
     scopeMs: ["Pembersihan kelodak, tumbuhan dan halangan dalam parit", "Mendalamkan dan memperlebar saliran", "Pembaikan serta pemadatan tebing yang rosak", "Pengangkutan dan pelupusan sisa korekan"],
     scopeEn: ["Removal of silt, vegetation and obstructions", "Drain deepening and widening", "Repair and compaction of damaged banks", "Transport and disposal of excavated material"],
-    assetIds: ["A078", "A079", "A080"], primaryAssetId: "ILL-excavator", iconName: "Waves"
+    assetIds: ["SVC04"], primaryAssetId: "SVC04", iconName: "Waves"
   },
   {
     id: "culverts", num: "05",
@@ -44,7 +44,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Reinforced concrete pipe (RCP) and box culverts, with headwalls and wing walls.",
     scopeMs: ["Pengorekan dan penyediaan asas pembetung", "Pemasangan pembetung paip atau kotak mengikut reka bentuk", "Pembinaan headwall dan wing wall", "Penimbusan semula berlapis dan pemadatan", "Penyambungan saliran dan perlindungan hakisan"],
     scopeEn: ["Excavation and culvert foundation preparation", "Pipe or box culvert installation to the design", "Headwall and wing wall construction", "Layered backfilling and compaction", "Drainage connections and erosion protection"],
-    assetIds: ["A082", "A084", "A085"], primaryAssetId: "ILL-culvert", iconName: "Layers"
+    assetIds: ["SVC05"], primaryAssetId: "SVC05", iconName: "Layers"
   },
   {
     id: "coring-tests", num: "06",
@@ -53,7 +53,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Pavement core sampling for thickness checks, laboratory tests and technical reporting.",
     scopeMs: ["Penandaan lokasi ujian coring", "Penggerudian dan pengambilan sampel teras asfalt atau konkrit", "Pengukuran ketebalan lapisan turapan mengikut spesifikasi projek", "Pengambilan sampel untuk ujian makmal yang ditetapkan", "Penampalan semula lubang coring", "Penyediaan laporan teknikal"],
     scopeEn: ["Marking coring test locations", "Drilling and extraction of asphalt or concrete cores", "Pavement layer thickness measurement against project specifications", "Sampling for the specified laboratory tests", "Reinstatement of core holes", "Technical report preparation"],
-    assetIds: ["A086", "A087", "A088"], primaryAssetId: "ILL-coring", iconName: "CheckCircle2"
+    assetIds: ["SVC06"], primaryAssetId: "SVC06", iconName: "CheckCircle2"
   },
   {
     id: "concrete-paving", num: "07",
@@ -62,7 +62,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Base preparation, reinforcement, concrete placement and finishing for yards, hardstands and access routes.",
     scopeMs: ["Penyediaan tapak dan asas crusher run", "Pemasangan kepingan polietilena", "Pemasangan tetulang dan acuan mengikut reka bentuk", "Tuangan, perataan dan kemasan permukaan konkrit mengikut spesifikasi", "Pembentukan sambungan dan pengawetan konkrit", "Ujian kawalan kualiti mengikut keperluan projek"],
     scopeEn: ["Site preparation and crusher-run base", "Polyethylene sheet installation", "Reinforcement and formwork to the design", "Concrete placement, levelling and surface finishing to specification", "Joint formation and concrete curing", "Quality-control tests to project requirements"],
-    assetIds: ["A090", "A091", "A092", "A093"], primaryAssetId: "ILL-concreteYard", iconName: "SquareCode"
+    assetIds: ["SVC07"], primaryAssetId: "SVC07", iconName: "SquareCode"
   },
   {
     id: "epoxy-coating", num: "08",
@@ -71,7 +71,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Surface preparation and epoxy floor coating systems to suit site requirements.",
     scopeMs: ["Penyediaan dan pengisaran permukaan lantai", "Pembaikan retakan dan kerosakan permukaan", "Aplikasi lapisan primer", "Aplikasi lapisan asas (base coat) dan lapisan kemasan (topcoat) mengikut spesifikasi sistem"],
     scopeEn: ["Floor surface preparation and grinding", "Crack and surface damage repairs", "Primer application", "Base coat and topcoat application to the coating system specification"],
-    assetIds: ["A094", "A095", "A096", "A097"], primaryAssetId: "ILL-epoxy", iconName: "Paintbrush"
+    assetIds: ["SVC08"], primaryAssetId: "SVC08", iconName: "Paintbrush"
   },
   {
     id: "general-construction", num: "09",
@@ -80,7 +80,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Design and build, renovation, civil works and reinstatement.",
     scopeMs: ["Reka dan bina", "Kerja ubah suai", "Kerja awam dan jalan raya", "Kerja pemulihan semula (reinstatement)", "Kerja keluli mengikut reka bentuk dan spesifikasi"],
     scopeEn: ["Design and build", "Renovation works", "Civil and road works", "Reinstatement works", "Steel works to design and specification"],
-    assetIds: ["A109"], primaryAssetId: "ILL-concreteYard", iconName: "Building2"
+    assetIds: ["SVC09"], primaryAssetId: "SVC09", iconName: "Building2"
   },
   {
     id: "mechanical-electrical", num: "10",
@@ -89,7 +89,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Mechanical and electrical works for commercial, residential and industrial premises.",
     scopeMs: ["Kerja M&E komersial", "Kerja M&E kediaman", "Kerja M&E industri", "Pemasangan kelengkapan mengikut skop dan spesifikasi yang dipersetujui"],
     scopeEn: ["Commercial M&E works", "Residential M&E works", "Industrial M&E works", "Fittings installation to the agreed scope and specifications"],
-    assetIds: ["A110"], primaryAssetId: "ILL-epoxy", iconName: "Zap"
+    assetIds: ["SVC10"], primaryAssetId: "SVC10", iconName: "Zap"
   },
   {
     id: "building-maintenance", num: "11",
@@ -98,7 +98,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "Building leak repairs, plumbing, drain inspection and waterproofing.",
     scopeMs: ["Pengesanan dan pembaikan kebocoran", "Kerja paip semula (re-piping)", "Pembersihan paip bertekanan (jetting) dan pemeriksaan video", "Kerja bilik mandi dan dapur", "Pemasangan pemanas air dan tangki air", "Kerja kalis air (waterproofing)"],
     scopeEn: ["Leak detection and repair", "Re-piping works", "Drain jetting and video inspection", "Bathroom and kitchen works", "Water-heater and water-tank installation", "Waterproofing works"],
-    assetIds: ["A111"], primaryAssetId: "ILL-culvert", iconName: "Wrench"
+    assetIds: ["SVC11"], primaryAssetId: "SVC11", iconName: "Wrench"
   },
   {
     id: "fit-out", num: "12",
@@ -107,6 +107,6 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescEn: "As-built drawings, interior design, furniture, carpentry and refurbishment.",
     scopeMs: ["Penyediaan lukisan terbina (as-built drawings)", "Reka bentuk dalaman", "Perabot dan kelengkapan", "Perabot tempahan khas dan kerja pertukangan kayu", "Kerja pembaharuan ruang (refurbishment)"],
     scopeEn: ["As-built drawing preparation", "Interior design", "Furniture and fittings", "Custom furniture and carpentry", "Refurbishment works"],
-    assetIds: ["A112"], primaryAssetId: "ILL-epoxy", iconName: "Hammer"
+    assetIds: ["SVC12"], primaryAssetId: "SVC12", iconName: "Hammer"
   }
 ];

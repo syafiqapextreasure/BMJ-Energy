@@ -174,7 +174,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   </div>
 
                   {/* Supporting Photos Gallery */}
-                  {service.assetIds.length > 0 && (
+                  {service.assetIds.length > 1 && (
                     <div className="grid grid-cols-3 gap-2.5 pt-1">
                       {service.assetIds.map((id) => (
                         <button
@@ -185,7 +185,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                           className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 cursor-pointer bg-white shadow-sm hover:border-[#F5A623] transition-colors"
                           onClick={() => onOpenLightbox(id)}
                         >
-                          <img data-service-thumbnail={index < 8 ? id : undefined} src={SERVICE_THUMBNAILS[id] || SERVICE_IMAGE_OVERRIDES[id]} alt={title} loading="lazy" className={`w-full h-full ${index < 8 ? 'object-cover' : 'object-contain p-3'}`} />
+                          <img data-service-thumbnail={index < 8 ? id : undefined} src={SERVICE_THUMBNAILS[id] || SERVICE_IMAGE_OVERRIDES[id] || getPhotoForAsset(id)} alt={title} loading="lazy" className={`w-full h-full ${index < 8 ? 'object-cover' : 'object-contain p-3'}`} />
                         </button>
                       ))}
                     </div>
