@@ -145,8 +145,8 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
             <h2 className="text-3xl font-extrabold text-[#102749] mt-1">{label('Semua 11 projek painting daripada katalog', 'All 11 painting projects from the catalog')}</h2>
             <p className="mt-2 text-slate-600 max-w-3xl leading-relaxed">
               {label(
-                'Dikemas kini supaya tidak menggabungkan gambar projek berlainan sebagai satu pasangan. Setiap kad kini menggunakan dua halaman sebenar projek yang sama daripada katalog: kiri untuk sebelum/proses, kanan untuk selepas/hasil.',
-                'Updated so different project photos are not forced into a false pair. Each card now uses the two actual catalog pages for the same project: left for before/process, right for after/result.'
+                'Dikemas kini dengan gambar individu yang diekstrak daripada katalog asal — bukan poster PDF penuh. Setiap kad memaparkan foto projek sebenar yang dikumpulkan mengikut projek masing-masing.',
+                'Updated with individual photos extracted from the original catalog — not full PDF poster pages. Each card shows real project photos grouped under the correct project.'
               )}
             </p>
           </div>
@@ -165,19 +165,39 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
                 </div>
                 <h3 className="mt-2 text-lg sm:text-xl font-extrabold leading-snug text-[#102749]">{label(item.titleMs, item.titleEn)}</h3>
               </div>
-              <div className="grid grid-cols-2 gap-px bg-slate-200">
-                <figure className="relative bg-slate-100 p-2">
-                  <img src={item.before} alt={`${label(item.titleMs, item.titleEn)} — ${label('sebelum atau proses', 'before or process')}`} className="w-full rounded-xl border border-slate-200 bg-white object-contain shadow-sm" loading="lazy" />
-                  <figcaption className="absolute left-4 top-4 rounded-full bg-slate-950/85 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
+              <div className="grid md:grid-cols-[2fr_1fr] gap-px bg-slate-200">
+                <div className="bg-white p-3">
+                  <div className="mb-3 inline-flex rounded-full bg-slate-950/85 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
                     {label('Sebelum / Proses', 'Before / Process')}
-                  </figcaption>
-                </figure>
-                <figure className="relative bg-slate-100 p-2">
-                  <img src={item.after} alt={`${label(item.titleMs, item.titleEn)} — ${label('selepas atau hasil', 'after or result')}`} className="w-full rounded-xl border border-slate-200 bg-white object-contain shadow-sm" loading="lazy" />
-                  <figcaption className="absolute left-4 top-4 rounded-full bg-[#F5A623] px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-[#102749]">
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {item.beforeImages.map((src, photoIndex) => (
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`${label(item.titleMs, item.titleEn)} — ${label('foto proses', 'process photo')} ${photoIndex + 1}`}
+                        className="aspect-[4/3] w-full rounded-xl border border-slate-200 object-cover bg-slate-100"
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white p-3">
+                  <div className="mb-3 inline-flex rounded-full bg-[#F5A623] px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-[#102749]">
                     {label('Selepas / Hasil', 'After / Result')}
-                  </figcaption>
-                </figure>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {item.afterImages.map((src, photoIndex) => (
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`${label(item.titleMs, item.titleEn)} — ${label('foto hasil', 'result photo')} ${photoIndex + 1}`}
+                        className="aspect-[16/9] w-full rounded-xl border border-slate-200 object-cover bg-slate-100"
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </article>
           ))}
