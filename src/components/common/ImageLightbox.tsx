@@ -6,6 +6,7 @@ import { ORIGINAL_PHOTO_OVERRIDES } from '@/src/data/originalPhotoOverrides';
 import { SERVICE_IMAGE_OVERRIDES } from '@/src/data/serviceImageOverrides';
 import { EQUIPMENT_IMAGE_OVERRIDES } from '@/src/data/equipmentImageOverrides';
 import { PROJECT_PHOTO_OVERRIDES } from '@/src/data/projectPhotoOverrides';
+import { getProjectPhotoStage, splitProjectPhotosByStage } from '@/src/data/projectGalleryGroups';
 import { SERVICES_DATA } from '@/src/data/servicesData';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -57,6 +58,13 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   const isService = Boolean(SERVICE_IMAGE_OVERRIDES[asset.id]) || isIllustration;
   const service = SERVICES_DATA.find(s => s.primaryAssetId === asset.id || s.assetIds.includes(asset.id));
   const title = !isIllustration && isService && service ? (language === 'ms' ? service.titleMs : service.titleEn) : asset.title;
+  const projectStage = getProjectPhotoStage(asset.id);
+  const projectGroups = assetList.some((id) => id.startsWith('P08-')) ? splitProjectPhotosByStage(assetList) : null;
+  const getThumbSrc = (id: string) => SERVICE_IMAGE_OVERRIDES[id] || EQUIPMENT_IMAGE_OVERRIDES[id] || PROJECT_PHOTO_OVERRIDES[id] || getPhotoForAsset(id, ASSETS_BY_ID[id]?.category);
+  const stageLabel = (stage: 'before' | 'after') => {
+    if (stage === 'before') return language === 'ms' ? 'Sebelum' : 'Before';
+    return language === 'ms' ? 'Selepas / Semasa' : 'After / During';
+  };
 
   return (
     <div
@@ -141,8 +149,42 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
             {asset.profileRef && <span>{asset.profileRef}</span>}
           </div>}
           <h4 className="text-base font-semibold text-slate-100">{title}</h4>
+          {projectStage && (
+            <div className="mt-2 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-[#F5A623]">
+              {stageLabel(projectStage)}
+            </div>
+          )}
           {!isService && asset.notes && <p className="text-xs text-slate-300 mt-1">{asset.notes}</p>}
         </div>
+
+        {projectGroups && (
+          <div className="mt-3 w-full max-w-5xl rounded-2xl bg-slate-950/95 border border-white/10 p-3 text-white shadow-xl">
+            <div className="grid gap-3 md:grid-cols-2">
+              {(['before', 'after'] as const).map((stage) => (
+                <div key={stage} className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-extrabold uppercase tracking-wider">
+                    <span className={stage === 'before' ? 'text-white' : 'text-[#F5A623]'}>{stageLabel(stage)}</span>
+                    <span className="text-slate-400">{projectGroups[stage].length}</span>
+                  </div>
+                  <div className="flex gap-2 overflow-x-auto pb-1">
+                    {projectGroups[stage].map((id) => (
+                      <button
+                        key={id}
+                        type="button"
+                        onClick={() => onNavigate?.(id)}
+                        className={`relative h-16 w-20 shrink-0 overflow-hidden rounded-lg border transition-all ${id === currentAssetId ? 'border-[#F5A623] ring-2 ring-[#F5A623]/40' : 'border-white/10 opacity-75 hover:opacity-100'}`}
+                        aria-label={`${stageLabel(stage)} ${id}`}
+                      >
+                        <img src={getThumbSrc(id)} alt={id} className="h-full w-full object-cover" loading="lazy" />
+                        <span className="absolute bottom-0 right-0 bg-black/70 px-1 py-0.5 text-[9px] font-mono text-white">{id.replace('P08-', '')}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

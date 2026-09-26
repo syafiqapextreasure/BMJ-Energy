@@ -44,6 +44,39 @@ export const PAINTING_PROJECTS = [
   },
 ];
 
+export const PAINTING_BEFORE_AFTER = [
+  {
+    titleMs: 'Siling Kompleks Sukan TLDM Lumut',
+    titleEn: 'TLDM Lumut Sports Complex Ceiling',
+    before: PAINTING_SERVICE_IMAGES.ceilingSteel,
+    after: PAINTING_SERVICE_IMAGES.ceilingFinished,
+    beforeLabelMs: 'Kerja rangka & permukaan siling',
+    beforeLabelEn: 'Ceiling frame and surface works',
+    afterLabelMs: 'Kemasan siling dicat semula',
+    afterLabelEn: 'Repainted ceiling finish',
+  },
+  {
+    titleMs: 'PU Waterproofing Wisma Samudera',
+    titleEn: 'PU Waterproofing at Wisma Samudera',
+    before: PAINTING_SERVICE_IMAGES.waterproofingRoof,
+    after: PAINTING_SERVICE_IMAGES.floorCoating,
+    beforeLabelMs: 'Persediaan permukaan bumbung',
+    beforeLabelEn: 'Roof surface preparation',
+    afterLabelMs: 'Lapisan coating perlindungan',
+    afterLabelEn: 'Protective coating layer',
+  },
+  {
+    titleMs: 'Bangunan Persekutuan & Apartmen',
+    titleEn: 'Federal Building and Apartment Blocks',
+    before: PAINTING_SERVICE_IMAGES.wallExterior,
+    after: PAINTING_SERVICE_IMAGES.apartmentFacade,
+    beforeLabelMs: 'Dinding luaran sebelum kemasan penuh',
+    beforeLabelEn: 'Exterior wall before final finishing',
+    afterLabelMs: 'Fasad siap dengan warna baharu',
+    afterLabelEn: 'Completed facade with refreshed colour',
+  },
+];
+
 export const PAINTING_SCOPE_MS = [
   'Pengecatan dalaman dan luaran untuk rumah, pejabat, fasiliti awam dan bangunan komersial.',
   'Kerja siling, dinding, besi, kayu, konkrit, plaster dan permukaan bertekstur.',

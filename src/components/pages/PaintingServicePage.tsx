@@ -3,7 +3,7 @@ import { RouteId } from '@/src/types';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPANY_DATA } from '@/src/data/companyData';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
-import { PAINTING_PROJECTS, PAINTING_SCOPE_EN, PAINTING_SCOPE_MS, PAINTING_SERVICE_IMAGES } from '@/src/data/paintingServiceData';
+import { PAINTING_BEFORE_AFTER, PAINTING_PROJECTS, PAINTING_SCOPE_EN, PAINTING_SCOPE_MS, PAINTING_SERVICE_IMAGES } from '@/src/data/paintingServiceData';
 import { Brush, CheckCircle2, Droplets, MessageSquare, PaintBucket, ShieldCheck, Sparkles } from 'lucide-react';
 
 interface PaintingServicePageProps {
@@ -31,7 +31,7 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
   );
 
   return (
-    <div className="space-y-16 pb-20">
+    <div className="pb-20">
       <Breadcrumbs currentRoute="painting" subTitle={label('Painting Services', 'Painting Services')} onNavigate={onNavigate} />
 
       <section className="relative overflow-hidden bg-[#102749]">
@@ -85,7 +85,7 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-start">
+      <section className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-5 space-y-4">
           <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Skop Perkhidmatan', 'Service Scope')}</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102749]">
@@ -113,7 +113,7 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+      <section className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5 rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs">
           <h2 className="text-2xl font-extrabold text-[#102749] mb-5">{label('Apa yang BMJ boleh buat', 'What BMJ can deliver')}</h2>
           <ul className="space-y-4">
@@ -138,25 +138,60 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between gap-6 mb-6 flex-wrap">
+      <section className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between gap-6 mb-8 flex-wrap">
           <div>
-            <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Projek Dalam Katalog', 'Catalog Project Examples')}</span>
-            <h2 className="text-3xl font-extrabold text-[#102749] mt-1">{label('Contoh kerja berkaitan mengecat', 'Related painting work examples')}</h2>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Sebelum & Selepas Dalam Katalog', 'Before & After From Catalog')}</span>
+            <h2 className="text-3xl font-extrabold text-[#102749] mt-1">{label('Transformasi kerja mengecat dan coating', 'Painting and coating transformations')}</h2>
+            <p className="mt-2 text-slate-600 max-w-2xl leading-relaxed">
+              {label(
+                'Foto katalog disusun semula sebagai perbandingan sebelum/selepas supaya pelanggan terus nampak hasil kerja, bukan sekadar galeri biasa.',
+                'The catalog photos are redesigned as before/after comparisons so customers can see outcomes clearly, not just a standard gallery.'
+              )}
+            </p>
           </div>
           <button onClick={() => onNavigate('contact')} className="px-5 py-3 rounded-xl bg-[#102749] text-white font-bold hover:bg-[#0b1b33]">
             {label('Hubungi BMJ', 'Contact BMJ')}
           </button>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {PAINTING_PROJECTS.map((project) => (
-            <article key={project.titleEn} className="rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-              <img src={project.image} alt={label(project.titleMs, project.titleEn)} className="w-full aspect-[4/3] object-cover" loading="lazy" />
-              <div className="p-5">
-                <h3 className="text-lg font-extrabold text-[#102749] leading-snug">{label(project.titleMs, project.titleEn)}</h3>
+
+        <div className="grid lg:grid-cols-3 gap-6">
+          {PAINTING_BEFORE_AFTER.map((item, index) => (
+            <article key={item.titleEn} className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="p-4 bg-slate-50 border-b border-slate-200">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs font-black uppercase tracking-widest text-[#C81D25]">{label('Perbandingan', 'Comparison')}</span>
+                  <span className="rounded-full bg-[#102749] px-3 py-1 text-xs font-bold text-white">{String(index + 1).padStart(2, '0')}</span>
+                </div>
+                <h3 className="mt-2 text-xl font-extrabold leading-snug text-[#102749]">{label(item.titleMs, item.titleEn)}</h3>
+              </div>
+              <div className="grid grid-cols-2 gap-px bg-slate-200">
+                <figure className="relative bg-white">
+                  <img src={item.before} alt={label(item.beforeLabelMs, item.beforeLabelEn)} className="h-64 w-full object-cover" loading="lazy" />
+                  <figcaption className="absolute left-3 top-3 rounded-full bg-slate-950/85 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
+                    {label('Sebelum', 'Before')}
+                  </figcaption>
+                </figure>
+                <figure className="relative bg-white">
+                  <img src={item.after} alt={label(item.afterLabelMs, item.afterLabelEn)} className="h-64 w-full object-cover" loading="lazy" />
+                  <figcaption className="absolute left-3 top-3 rounded-full bg-[#F5A623] px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-[#102749]">
+                    {label('Selepas', 'After')}
+                  </figcaption>
+                </figure>
+              </div>
+              <div className="grid grid-cols-2 gap-px bg-slate-100 text-sm font-semibold text-slate-700">
+                <div className="bg-white p-4">{label(item.beforeLabelMs, item.beforeLabelEn)}</div>
+                <div className="bg-white p-4">{label(item.afterLabelMs, item.afterLabelEn)}</div>
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-semibold text-[#102749]">
+          {label(
+            `${PAINTING_PROJECTS.length} contoh katalog telah diringkaskan kepada perbandingan utama di atas untuk paparan lebih kemas.`,
+            `${PAINTING_PROJECTS.length} catalog examples are condensed into the main comparisons above for a cleaner presentation.`
+          )}
         </div>
       </section>
     </div>

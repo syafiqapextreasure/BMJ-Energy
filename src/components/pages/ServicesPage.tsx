@@ -10,7 +10,9 @@ import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import { YellowAngleBox } from '@/src/components/common/YellowAngleBox';
 import {
   MessageSquare,
-  CheckCircle2
+  CheckCircle2,
+  Brush,
+  ArrowRight
 } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -58,21 +60,44 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
+      {/* Special Painting Service CTA */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-[#102749] border border-[#102749] shadow-lg">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,166,35,0.28),transparent_38%)]" />
+          <div className="relative grid lg:grid-cols-12 gap-6 items-center p-6 sm:p-8 lg:p-10">
+            <div className="lg:col-span-8 text-white space-y-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-4 py-2 text-sm font-extrabold uppercase tracking-wider text-[#102749]">
+                <Brush className="w-4 h-4" />
+                {language === 'ms' ? 'Perkhidmatan Khas' : 'Featured Service'}
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">
+                Painting Services & Protective Coating
+              </h2>
+              <p className="text-base sm:text-lg text-slate-100 max-w-3xl leading-relaxed">
+                {language === 'ms'
+                  ? 'Halaman khusus untuk kerja mengecat, epoxy coating, waterproofing dan contoh sebelum/selepas daripada katalog BMJ.'
+                  : 'A dedicated page for painting, epoxy coating, waterproofing and before/after examples from the BMJ catalog.'}
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <button
+                onClick={() => onNavigate('painting')}
+                className="inline-flex min-h-[54px] items-center justify-center gap-2 rounded-xl bg-[#F5A623] px-6 py-3.5 font-extrabold text-[#102749] shadow-lg hover:bg-[#E09419] transition-colors"
+              >
+                {language === 'ms' ? 'Buka Halaman Painting' : 'Open Painting Page'}
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Service Anchor Navigation */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
           <span className="text-sm font-bold uppercase tracking-wider text-slate-700 block mb-3">
             {language === 'ms' ? `Pilih Skop Perkhidmatan (${SERVICES_DATA.length + 1} Bidang):` : `Select Service Category (${SERVICES_DATA.length + 1} Scopes):`}
           </span>
-          <div className="mb-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div>
-              <div className="text-sm font-extrabold text-[#102749]">{language === 'ms' ? 'Painting Services & Protective Coating' : 'Painting Services & Protective Coating'}</div>
-              <div className="text-sm text-slate-700">{language === 'ms' ? 'Halaman khusus untuk kerja mengecat, epoxy coating dan waterproofing.' : 'Dedicated page for painting, epoxy coating and waterproofing works.'}</div>
-            </div>
-            <button onClick={() => onNavigate('painting')} className="px-4 py-2 rounded-xl bg-[#F5A623] text-[#102749] font-extrabold hover:bg-[#E09419]">
-              {language === 'ms' ? 'Buka Halaman' : 'Open Page'}
-            </button>
-          </div>
           <div className="flex flex-wrap gap-2.5">
             {SERVICES_DATA.map((srv) => (
               <button

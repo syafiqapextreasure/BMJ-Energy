@@ -377,16 +377,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               key={project.id}
               className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col"
             >
-              <div className={`relative bg-slate-900 ${project.assetIds?.length ? 'aspect-[16/10]' : 'h-12'}`}>
-                {project.assetIds?.[0] && (
-                  <AssetImage
-                    assetId={project.assetIds[0]}
-                    alt={language === 'ms' ? project.titleMs : project.titleEn}
-                    aspectRatio="aspect-[16/10]"
-                    onClick={() => onOpenLightbox(project.assetIds![0])}
-                    className="cursor-pointer"
-                  />
-                )}
+              <div className="relative bg-slate-900 h-12">
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/85 text-white font-mono text-xs sm:text-sm font-bold">
                   {project.code}
                 </span>

@@ -3,6 +3,7 @@ import { RouteId, ProjectRecord } from '@/src/types';
 import { useLanguage } from '@/src/context/LanguageContext';
 import { COMPLETED_PROJECTS, SUPPORTING_RECORDS, PHOTO_ONLY_ARCHIVES } from '@/src/data/portfolioData';
 import { AssetImage } from '@/src/components/common/AssetImage';
+import { getProjectPhotoStage } from '@/src/data/projectGalleryGroups';
 import { Breadcrumbs } from '@/src/components/common/Breadcrumbs';
 import {
   Search,
@@ -247,7 +248,9 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                             {t.portfolio.viewPhotos} ({project.assetIds!.length}):
                           </span>
                           <div className="grid grid-cols-2 gap-2">
-                            {project.assetIds!.slice(0, 4).map((id) => (
+                            {project.assetIds!.slice(0, 4).map((id) => {
+                              const stage = getProjectPhotoStage(id);
+                              return (
                               <div
                                 key={id}
                                 className="relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 cursor-pointer group bg-slate-900"
@@ -257,13 +260,19 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate, onOpen
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity pointer-events-none">
                                   <Eye className="w-5 h-5 text-white" />
                                 </div>
+                                {stage && (
+                                  <span className={`absolute top-1 left-1 px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase ${stage === 'before' ? 'bg-slate-950/85 text-white' : 'bg-[#F5A623] text-[#102749]'}`}>
+                                    {language === 'ms' ? (stage === 'before' ? 'Sebelum' : 'Selepas') : (stage === 'before' ? 'Before' : 'After')}
+                                  </span>
+                                )}
                                 {!id.startsWith('ILL-') && (
                                   <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/80 text-white font-mono text-[10px]">
                                     {id}
                                   </span>
                                 )}
                               </div>
-                            ))}
+                              );
+                            })}
                           </div>
                           {project.assetIds!.length > 4 && (
                             <button
