@@ -141,12 +141,12 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
       <section className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between gap-6 mb-8 flex-wrap">
           <div>
-            <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Projek Katalog Sebelum & Selepas', 'Before & After Catalog Projects')}</span>
-            <h2 className="text-3xl font-extrabold text-[#102749] mt-1">{label('Semua 11 projek painting daripada katalog', 'All 11 painting projects from the catalog')}</h2>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#C81D25]">{label('Projek Mengecat Sebelum & Selepas', 'Before & After Painting Projects')}</span>
+            <h2 className="text-3xl font-extrabold text-[#102749] mt-1">{label('Contoh hasil kerja mengecat BMJ', 'BMJ painting project examples')}</h2>
             <p className="mt-2 text-slate-600 max-w-3xl leading-relaxed">
               {label(
-                'Dikemas kini dengan gambar individu yang diekstrak daripada katalog asal — bukan poster PDF penuh. Setiap kad memaparkan foto projek sebenar yang dikumpulkan mengikut projek masing-masing.',
-                'Updated with individual photos extracted from the original catalog — not full PDF poster pages. Each card shows real project photos grouped under the correct project.'
+                'Lihat contoh kerja mengecat sebenar yang pernah dilaksanakan oleh pasukan BMJ, termasuk keadaan semasa kerja dan hasil akhir di pelbagai jenis bangunan serta kemudahan.',
+                'View examples of real painting work completed by the BMJ team, including work-in-progress conditions and final results across different buildings and facilities.'
               )}
             </p>
           </div>
@@ -160,7 +160,7 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
             <article key={item.titleEn} className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="p-5 bg-slate-50 border-b border-slate-200">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-xs font-black uppercase tracking-widest text-[#C81D25]">{label('Projek Katalog', 'Catalog Project')}</span>
+                  <span className="text-xs font-black uppercase tracking-widest text-[#C81D25]">{label('Projek Mengecat', 'Painting Project')}</span>
                   <span className="rounded-full bg-[#102749] px-3 py-1 text-xs font-bold text-white">{String(index + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="mt-2 text-lg sm:text-xl font-extrabold leading-snug text-[#102749]">{label(item.titleMs, item.titleEn)}</h3>
@@ -205,8 +205,8 @@ export const PaintingServicePage: React.FC<PaintingServicePageProps> = ({ onNavi
 
         <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-semibold text-[#102749]">
           {label(
-            `${PAINTING_CATALOG_PROJECTS.length} projek katalog dipaparkan menggunakan gambar individu yang diekstrak daripada katalog asal.`,
-            `${PAINTING_CATALOG_PROJECTS.length} catalog projects are shown using individual photos extracted from the original catalog.`
+            `${PAINTING_CATALOG_PROJECTS.length} contoh projek mengecat dipaparkan sebagai rujukan hasil kerja BMJ.`,
+            `${PAINTING_CATALOG_PROJECTS.length} painting project examples are shown as references for BMJ workmanship.`
           )}
         </div>
       </section>
